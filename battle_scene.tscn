@@ -1,12 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2q8r7gda30hl"]
+[gd_scene load_steps=8 format=3 uid="uid://d2q8r7gda30hl"]
 
 [ext_resource type="PackedScene" uid="uid://1or4eq5w3uoy" path="res://BattleEntity/Player/player.tscn" id="1_3nuks"]
 [ext_resource type="PackedScene" uid="uid://b3cfy30i7gunq" path="res://BattleEntity/Enemies/slime.tscn" id="2_b8qel"]
+[ext_resource type="Script" path="res://chainer_manager.gd" id="3_76cat"]
+[ext_resource type="PackedScene" uid="uid://bmsob22bus8gg" path="res://action_chainer.tscn" id="3_hbeln"]
+[ext_resource type="Script" path="res://chains_manager.gd" id="4_j0lnd"]
+[ext_resource type="PackedScene" uid="uid://b4eejhun6hkyy" path="res://block.tscn" id="5_lqntc"]
+[ext_resource type="PackedScene" uid="uid://sm43c38hsv16" path="res://connector.tscn" id="6_l0j43"]
 
 [node name="BattleScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_3nuks")]
-position = Vector2(160, 240)
+position = Vector2(160, 232)
 
 [node name="Slime" parent="." instance=ExtResource("2_b8qel")]
 position = Vector2(736, 232)
+
+[node name="ChainerManager" type="Node" parent="."]
+script = ExtResource("3_76cat")
+
+[node name="ChainsManager" type="GridContainer" parent="ChainerManager"]
+offset_left = 576.0
+offset_top = 296.0
+offset_right = 896.0
+offset_bottom = 488.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+script = ExtResource("4_j0lnd")
+
+[node name="Block" parent="ChainerManager/ChainsManager" instance=ExtResource("5_lqntc")]
+layout_mode = 2
+text = "5"
+
+[node name="Block3" parent="ChainerManager/ChainsManager" instance=ExtResource("5_lqntc")]
+layout_mode = 2
+text = "4"
+
+[node name="Connector" parent="ChainerManager/ChainsManager" instance=ExtResource("6_l0j43")]
+layout_mode = 2
+
+[node name="Connector2" parent="ChainerManager/ChainsManager" instance=ExtResource("6_l0j43")]
+layout_mode = 2
+
+[node name="AttackChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
+offset_left = 128.0
+offset_top = 296.0
+offset_right = 512.0
+offset_bottom = 360.0
+
+[node name="BlockChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
+offset_left = 128.0
+offset_top = 376.0
+offset_right = 512.0
+offset_bottom = 440.0
+chainer_type = 1
+
+[node name="DrawChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
+offset_left = 128.0
+offset_top = 456.0
+offset_right = 512.0
+offset_bottom = 520.0
+chainer_type = 2

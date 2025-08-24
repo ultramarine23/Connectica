@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmsob22bus8gg"]
+
+[ext_resource type="Script" path="res://action_chainer.gd" id="1_qpwoo"]
+
+[node name="ActionChainer" type="Button"]
+offset_right = 384.0
+offset_bottom = 64.0
+toggle_mode = true
+script = ExtResource("1_qpwoo")
+
+[node name="ClearButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 16.0
+offset_bottom = 47.0
+text = "CLEAR"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 64.0
