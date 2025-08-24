@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://beq2m62knptjr"]
+
+[ext_resource type="Script" path="res://BattleEntity/battle_entity.gd" id="1_84g3f"]
+[ext_resource type="PackedScene" uid="uid://de05qelj2shxy" path="res://BattleEntity/Components/health_manager.tscn" id="2_hmg6o"]
+
+[node name="BattleEntity" type="Node2D"]
+script = ExtResource("1_84g3f")
+
+[node name="HealthManager" parent="." instance=ExtResource("2_hmg6o")]

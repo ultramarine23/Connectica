@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2q8r7gda30hl"]
+
+[ext_resource type="PackedScene" uid="uid://1or4eq5w3uoy" path="res://BattleEntity/Player/player.tscn" id="1_3nuks"]
+[ext_resource type="PackedScene" uid="uid://b3cfy30i7gunq" path="res://BattleEntity/Enemies/slime.tscn" id="2_b8qel"]
+
+[node name="BattleScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_3nuks")]
+position = Vector2(160, 240)
+
+[node name="Slime" parent="." instance=ExtResource("2_b8qel")]
+position = Vector2(736, 232)
