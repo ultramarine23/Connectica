@@ -10,4 +10,4 @@ func _ready():
 
 func on_pressed():
 	chain_pressed.emit(self)
-	queue_free()
+	get_parent().remove_child(self)

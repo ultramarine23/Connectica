@@ -13,6 +13,7 @@ func _ready():
 		if child is ActionChainer:
 			chainers.append(child)
 			child.button_down.connect(on_chainer_selected.bind(child))
+			child.request_return_contents.connect(on_return_contents_requested)
 	
 	chains_manager.chain_selected.connect(add_chain_to_chainer)
 
@@ -41,3 +42,8 @@ func toggle_chain_availability():
 
 func add_chain_to_chainer(chain : Chain):
 	currently_active_chainer.add_chain(chain)
+
+
+func on_return_contents_requested(contents : Array):
+	for chain in contents:
+		chains_manager.add_child(chain)

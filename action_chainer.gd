@@ -8,12 +8,12 @@ class_name ActionChainer
 var accepting_chains = []
 var cur_chains = []
 
-signal request_return
+signal request_return_contents(contents : Array[Chain])
 
 func _ready():
 	toggle_mode = true
 	clear_button.pressed.connect(return_contents)
-	accepting_chains = [GlobalConsts.BLOCK]
+	accepting_chains = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
 
 
 func add_chain(chain : Chain):
@@ -30,4 +30,7 @@ func add_chain(chain : Chain):
 
 
 func return_contents():
-	pass
+	request_return_contents.emit(cur_chains)
+	cur_chains = []
+	accepting_chains = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
+	text = ""

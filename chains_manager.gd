@@ -10,7 +10,8 @@ func _ready():
 
 
 func on_child_entered_tree(child : Chain):
-	child.chain_pressed.connect(on_chain_pressed)
+	if not child.chain_pressed.is_connected(on_chain_pressed):
+		child.chain_pressed.connect(on_chain_pressed)
 
 
 func on_chain_pressed(chain : Chain):
