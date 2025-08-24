@@ -2,5 +2,19 @@
 
 [ext_resource type="Script" path="res://BattleEntity/Components/health_manager.gd" id="1_4n36d"]
 
-[node name="HealthManager" type="Node"]
+[node name="HealthManager" type="Node2D"]
 script = ExtResource("1_4n36d")
+
+[node name="EmptyBar" type="ColorRect" parent="."]
+offset_left = -48.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 24.0
+color = Color(0, 0, 0, 1)
+
+[node name="FullBar" type="ColorRect" parent="."]
+offset_left = -48.0
+offset_top = 8.0
+offset_right = -32.0
+offset_bottom = 24.0
+color = Color(0.364706, 0.803922, 0.207843, 1)

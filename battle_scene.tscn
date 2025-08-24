@@ -45,9 +45,9 @@ layout_mode = 2
 
 [node name="AttackChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0
-offset_top = 296.0
+offset_top = 288.0
 offset_right = 512.0
-offset_bottom = 360.0
+offset_bottom = 352.0
 
 [node name="BlockChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0
@@ -58,7 +58,35 @@ chainer_type = 1
 
 [node name="DrawChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0
-offset_top = 456.0
+offset_top = 464.0
 offset_right = 512.0
-offset_bottom = 520.0
+offset_bottom = 528.0
 chainer_type = 2
+
+[node name="Label" type="Label" parent="ChainerManager"]
+offset_left = 72.0
+offset_top = 280.0
+offset_right = 122.0
+offset_bottom = 303.0
+text = "Attack"
+
+[node name="Label2" type="Label" parent="ChainerManager"]
+offset_left = 72.0
+offset_top = 368.0
+offset_right = 122.0
+offset_bottom = 391.0
+text = "Block"
+
+[node name="Label3" type="Label" parent="ChainerManager"]
+offset_left = 72.0
+offset_top = 456.0
+offset_right = 122.0
+offset_bottom = 479.0
+text = "Draw"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 768.0
+offset_top = 32.0
+offset_right = 920.0
+offset_bottom = 96.0
+text = "Start Round"
