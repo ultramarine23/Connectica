@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://1or4eq5w3uoy"]
 
 [ext_resource type="Script" path="res://BattleEntity/Player/player.gd" id="1_7bx07"]
-[ext_resource type="Texture2D" uid="uid://drrvd6g5ylghn" path="res://icon.svg" id="1_17rp3"]
+[ext_resource type="Texture2D" uid="uid://kgos0n82twh7" path="res://BattleEntity/Player/player.png" id="2_844cv"]
 [ext_resource type="PackedScene" uid="uid://de05qelj2shxy" path="res://BattleEntity/Components/health_manager.tscn" id="2_l6nsy"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_7bx07")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -48)
-scale = Vector2(0.5, 0.75)
-texture = ExtResource("1_17rp3")
+position = Vector2(0, -64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_844cv")
 
 [node name="HealthManager" parent="." instance=ExtResource("2_l6nsy")]

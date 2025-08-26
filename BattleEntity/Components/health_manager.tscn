@@ -12,7 +12,7 @@ offset_right = 48.0
 offset_bottom = 24.0
 color = Color(0, 0, 0, 1)
 
-[node name="FullBar" type="ColorRect" parent="."]
+[node name="HealthBar" type="ColorRect" parent="."]
 offset_left = -48.0
 offset_top = 8.0
 offset_right = -32.0

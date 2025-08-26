@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4m85amx68yyb"
-path="res://.godot/imported/round_start_button_down.png-1b716b1ec08b958a93a79115402c0229.ctex"
+uid="uid://kgos0n82twh7"
+path="res://.godot/imported/player.png-44d18c3ab87606c5d77102ad64709e8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://round_start_button_down.png"
-dest_files=["res://.godot/imported/round_start_button_down.png-1b716b1ec08b958a93a79115402c0229.ctex"]
+source_file="res://BattleEntity/Player/player.png"
+dest_files=["res://.godot/imported/player.png-44d18c3ab87606c5d77102ad64709e8d.ctex"]
 
 [params]
 
