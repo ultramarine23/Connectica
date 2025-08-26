@@ -11,14 +11,16 @@ config_version=5
 [application]
 
 config/name="Connectica"
-run/main_scene="res://battle_scene.tscn"
+run/main_scene="res://BattleScene/battle_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalConsts="*res://global_consts.gd"
-GlobalSignals="*res://global_signals.gd"
+Consts="*res://Singletons/SNG_global_consts.gd"
+Signals="*res://Singletons/SNG_global_signals.gd"
+BattleInfo="*res://Singletons/SNG_battle_info.gd"
+Managers="*res://Singletons/SNG_managers_registry.gd"
 
 [display]
 

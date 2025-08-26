@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://qt7a51y6spqp"]
 
-[ext_resource type="Script" path="res://function.gd" id="1_2627i"]
+[ext_resource type="Script" path="res://Links/function.gd" id="1_2627i"]
 
 [node name="Function" type="Button"]
 custom_minimum_size = Vector2(56, 56)

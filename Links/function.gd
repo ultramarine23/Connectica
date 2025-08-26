@@ -2,7 +2,7 @@ extends Link
 class_name Function
 
 func _init():
-	link_type = GlobalConsts.FUNCTION
+	link_type = Consts.FUNCTION
 	link_value = percentage
 	text = "%"
 

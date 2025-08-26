@@ -1,7 +1,7 @@
 extends Button
 class_name ActionChainer
 
-@export var chainer_type : GlobalConsts.Actions
+@export var chainer_type : Consts.Actions
 
 @onready var clear_button = $ClearButton
 
@@ -13,7 +13,7 @@ signal request_return_contents(contents : Array[Link])
 func _ready():
 	toggle_mode = true
 	clear_button.pressed.connect(return_contents)
-	accepting_links = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
+	accepting_links = [Consts.FUNCTION, Consts.BLOCK]
 
 
 func add_link(link : Link):
@@ -21,18 +21,18 @@ func add_link(link : Link):
 	text += link.text + " "
 	
 	match link.link_type:
-		GlobalConsts.BLOCK:
-			accepting_links = [GlobalConsts.CONNECTOR]
-		GlobalConsts.CONNECTOR:
-			accepting_links = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
-		GlobalConsts.FUNCTION:
-			accepting_links = [GlobalConsts.BLOCK]
+		Consts.BLOCK:
+			accepting_links = [Consts.CONNECTOR]
+		Consts.CONNECTOR:
+			accepting_links = [Consts.FUNCTION, Consts.BLOCK]
+		Consts.FUNCTION:
+			accepting_links = [Consts.BLOCK]
 
 
 func return_contents():
 	request_return_contents.emit(cur_links)
 	cur_links = []
-	accepting_links = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
+	accepting_links = [Consts.FUNCTION, Consts.BLOCK]
 	text = ""
 
 
@@ -69,6 +69,9 @@ func evaluate(): # algorithm for converting string of operations into an output
 
 
 func check_if_chain_valid(link : Array):
+	if link == []:
+		return true
+	
 	if not link.back() is Number:
 		return false
 	else:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://sm43c38hsv16"]
 
-[ext_resource type="Script" path="res://connector.gd" id="1_i4oco"]
+[ext_resource type="Script" path="res://Links/operation.gd" id="1_i4oco"]
 
 [node name="Connector" type="Button"]
 custom_minimum_size = Vector2(56, 56)

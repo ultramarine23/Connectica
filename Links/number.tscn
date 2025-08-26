@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4eejhun6hkyy"]
 
-[ext_resource type="Script" path="res://block.gd" id="1_t17ad"]
+[ext_resource type="Script" path="res://Links/number.gd" id="1_t17ad"]
 
 [node name="Block" type="Button"]
 custom_minimum_size = Vector2(56, 56)

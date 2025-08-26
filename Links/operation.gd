@@ -2,7 +2,7 @@ extends Link
 class_name Operation
 
 func _init():
-	link_type = GlobalConsts.CONNECTOR
+	link_type = Consts.CONNECTOR
 	link_value = sum
 
 

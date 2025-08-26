@@ -1,14 +1,21 @@
 extends Node
+class_name ChainerManager
 
 var currently_active_chainer : ActionChainer
 
-@onready var links_manager = $ChainsManager
+@onready var links_manager = $LinksManager
+@onready var attack_chainer = $AttackChainer
+@onready var block_chainer = $BlockChainer
+@onready var draw_chainer = $DrawChainer
 
 var chainers = []
 var links = []
 
 
 func _ready():
+	# register self into managers registry
+	Managers.chainer_manager = self
+	
 	for child in get_children():
 		if child is ActionChainer:
 			chainers.append(child)
@@ -47,3 +54,23 @@ func add_link_to_chainer(link : Link):
 func on_return_contents_requested(contents : Array):
 	for link in contents:
 		links_manager.add_child(link)
+
+## ===== API functions ======
+func get_attack():
+	return attack_chainer.evaluate()
+
+func get_block():
+	return block_chainer.evaluate()
+
+func get_draw():
+	return draw_chainer.evaluate()
+
+func check_if_chainers_valid():
+	if get_attack() == null:
+		return false
+	elif get_block() == null:
+		return false
+	elif get_draw() == null:
+		return false
+	else:
+		return true

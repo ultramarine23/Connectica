@@ -2,6 +2,7 @@ extends Node2D
 class_name EntityHealthManager
 
 @onready var health_bar = $HealthBar
+@onready var health_label = $HealthLabel
 
 @export var max_hp : int = 100
 
@@ -12,7 +13,8 @@ signal hp_depleted
 
 func _ready():
 	health = max_hp
-	GlobalSignals.round_ended.connect(on_round_end)
+	deduct_hp(0)
+	Signals.round_ended.connect(on_round_end)
 
 func deduct_hp(amount : int):
 	# take block into consideration
@@ -23,6 +25,9 @@ func deduct_hp(amount : int):
 	
 	health -= amount
 	health_bar.size.x = 96 * float(health) / float(max_hp)
+	
+	health_label.text = str(health) + " / " + str(max_hp)
+	
 	if health <= 0:
 		hp_depleted.emit()
 
