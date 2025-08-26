@@ -2,7 +2,7 @@ extends Link
 class_name Operation
 
 func _init():
-	link_type = Consts.CONNECTOR
+	link_type = Consts.OPERATION
 	link_value = sum
 
 

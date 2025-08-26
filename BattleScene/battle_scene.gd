@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready():
 	BattleInfo.is_battle_over = false
+	BattleInfo.level_rarity_table = preload("res://L1_rarity_table.tres")
 	randomize()
 	start_round()
 
@@ -36,6 +37,7 @@ func preexecution_phase():
 	
 	await get_tree().create_timer(Consts.PAUSE_DUR).timeout
 
+
 func execution_phase():
 	for intent in BattleInfo.enemy_intents:
 		intent.execute_attack()
@@ -43,5 +45,6 @@ func execution_phase():
 	
 	BattleInfo.player_intent.execute_attack()
 
+
 func transition_phase():
-	pass
+	BattleInfo.enemy_intents.clear()

@@ -1,5 +1,7 @@
 extends Node
 
+var level_rarity_table : RarityTable
+
 var player : Player
 var enemies : Array[Enemy] = []
 

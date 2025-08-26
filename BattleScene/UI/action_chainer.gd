@@ -13,7 +13,7 @@ signal request_return_contents(contents : Array[Link])
 func _ready():
 	toggle_mode = true
 	clear_button.pressed.connect(return_contents)
-	accepting_links = [Consts.FUNCTION, Consts.BLOCK]
+	accepting_links = [Consts.FUNCTION, Consts.NUMBER]
 
 
 func add_link(link : Link):
@@ -21,12 +21,12 @@ func add_link(link : Link):
 	text += link.text + " "
 	
 	match link.link_type:
-		Consts.BLOCK:
-			accepting_links = [Consts.CONNECTOR]
-		Consts.CONNECTOR:
-			accepting_links = [Consts.FUNCTION, Consts.BLOCK]
+		Consts.NUMBER:
+			accepting_links = [Consts.OPERATION]
+		Consts.OPERATION:
+			accepting_links = [Consts.FUNCTION, Consts.NUMBER]
 		Consts.FUNCTION:
-			accepting_links = [Consts.BLOCK]
+			accepting_links = [Consts.NUMBER]
 
 
 func return_contents():
@@ -35,7 +35,7 @@ func return_contents():
 
 func clear_links():
 	cur_links = []
-	accepting_links = [Consts.FUNCTION, Consts.BLOCK]
+	accepting_links = [Consts.FUNCTION, Consts.NUMBER]
 	text = ""
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2q8r7gda30hl"]
+[gd_scene load_steps=10 format=3 uid="uid://d2q8r7gda30hl"]
 
 [ext_resource type="PackedScene" uid="uid://1or4eq5w3uoy" path="res://BattleEntity/Player/player.tscn" id="1_3nuks"]
 [ext_resource type="Script" path="res://BattleScene/battle_scene.gd" id="1_ghiv6"]
@@ -7,9 +7,6 @@
 [ext_resource type="Script" path="res://BattleScene/chainer_manager.gd" id="3_76cat"]
 [ext_resource type="PackedScene" uid="uid://bmsob22bus8gg" path="res://BattleScene/UI/action_chainer.tscn" id="3_hbeln"]
 [ext_resource type="Script" path="res://BattleScene/links_manager.gd" id="4_j0lnd"]
-[ext_resource type="PackedScene" uid="uid://b4eejhun6hkyy" path="res://Links/number.tscn" id="5_lqntc"]
-[ext_resource type="PackedScene" uid="uid://sm43c38hsv16" path="res://Links/operation.tscn" id="6_l0j43"]
-[ext_resource type="PackedScene" uid="uid://qt7a51y6spqp" path="res://Links/function.tscn" id="7_xa3wo"]
 [ext_resource type="Texture2D" uid="uid://bkl3s74qoyv15" path="res://BattleEntity/foreground.png" id="10_elgfk"]
 [ext_resource type="Script" path="res://BattleScene/round_init_button.gd" id="12_yiov7"]
 
@@ -39,23 +36,6 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 5
 script = ExtResource("4_j0lnd")
-
-[node name="Function" parent="ChainerManager/LinksManager" instance=ExtResource("7_xa3wo")]
-layout_mode = 2
-
-[node name="Block" parent="ChainerManager/LinksManager" instance=ExtResource("5_lqntc")]
-layout_mode = 2
-text = "5"
-
-[node name="Block3" parent="ChainerManager/LinksManager" instance=ExtResource("5_lqntc")]
-layout_mode = 2
-text = "4"
-
-[node name="Connector" parent="ChainerManager/LinksManager" instance=ExtResource("6_l0j43")]
-layout_mode = 2
-
-[node name="Connector2" parent="ChainerManager/LinksManager" instance=ExtResource("6_l0j43")]
-layout_mode = 2
 
 [node name="AttackChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0

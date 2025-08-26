@@ -1,7 +1,7 @@
 extends Button
 class_name Link
 
-var link_type : int = Consts.BLOCK
+var link_type : int = Consts.NUMBER
 var link_value # variant variable, can be int, float or callable
 
 signal link_pressed(link : Button)
