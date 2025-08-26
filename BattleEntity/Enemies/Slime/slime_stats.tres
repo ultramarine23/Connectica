@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StatsResource" load_steps=2 format=3 uid="uid://cskodcidpoj42"]
+
+[ext_resource type="Script" path="res://BattleEntity/Enemies/stats_resource.gd" id="1_f53ho"]
+
+[resource]
+script = ExtResource("1_f53ho")
+max_health = 20
+strength = 6
+accuracy = 100

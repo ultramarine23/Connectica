@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3cfy30i7gunq"]
+[gd_scene load_steps=5 format=3 uid="uid://b3cfy30i7gunq"]
 
 [ext_resource type="Script" path="res://BattleEntity/Enemies/slime.gd" id="1_a1n5p"]
 [ext_resource type="Texture2D" uid="uid://di787mfh8whru" path="res://BattleEntity/Enemies/Slime/slime.png" id="2_nw7r7"]
+[ext_resource type="Resource" uid="uid://cskodcidpoj42" path="res://BattleEntity/Enemies/Slime/slime_stats.tres" id="2_tfm08"]
 [ext_resource type="PackedScene" uid="uid://de05qelj2shxy" path="res://BattleEntity/Components/health_manager.tscn" id="3_r0pvl"]
 
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_a1n5p")
+stats_res = ExtResource("2_tfm08")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -32)

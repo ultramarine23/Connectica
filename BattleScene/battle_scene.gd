@@ -12,12 +12,14 @@ func start_round():
 
 
 func preexecution_phase():
-	# generate enemy turn intents + display them
+	# generate enemy turn intents + !!!!!display them!!!!!
+	for enem in BattleInfo.enemies:
+		BattleInfo.enemy_intents[enem] = enem.generate_intent()
 	
 	await round_init_button.initiation_requested
 	
 	# generate player turn intents
-	BattleInfo.player_turn_intent = TurnIntent.new(
+	BattleInfo.player_intent = TurnIntent.new(
 		Managers.chainer_manager.get_attack(), 
 		Managers.chainer_manager.get_block(),
 		Managers.chainer_manager.get_draw()
