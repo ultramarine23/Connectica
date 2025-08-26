@@ -1,9 +1,10 @@
-extends Chain
+extends Link
+class_name Number
 
 func _init():
-	chain_type = GlobalConsts.BLOCK
-	chain_value = randi_range(1, 6)
+	link_type = GlobalConsts.BLOCK
+	link_value = randi_range(1, 6)
 
 func _ready():
-	text = str(chain_value)
+	text = str(link_value)
 	super()

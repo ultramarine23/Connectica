@@ -5,49 +5,51 @@ class_name ActionChainer
 
 @onready var clear_button = $ClearButton
 
-var accepting_chains = []
-var cur_chains = []
+var accepting_links = []
+var cur_links = []
 
-signal request_return_contents(contents : Array[Chain])
+signal request_return_contents(contents : Array[Link])
 
 func _ready():
 	toggle_mode = true
 	clear_button.pressed.connect(return_contents)
-	accepting_chains = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
+	accepting_links = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
 
 
-func add_chain(chain : Chain):
-	cur_chains.append(chain)
-	text += chain.text + " "
+func add_link(link : Link):
+	cur_links.append(link)
+	text += link.text + " "
 	
-	match chain.chain_type:
+	match link.link_type:
 		GlobalConsts.BLOCK:
-			accepting_chains = [GlobalConsts.CONNECTOR]
+			accepting_links = [GlobalConsts.CONNECTOR]
 		GlobalConsts.CONNECTOR:
-			accepting_chains = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
+			accepting_links = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
 		GlobalConsts.FUNCTION:
-			accepting_chains = [GlobalConsts.BLOCK]
+			accepting_links = [GlobalConsts.BLOCK]
 
 
 func return_contents():
-	evaluate()
-	request_return_contents.emit(cur_chains)
-	cur_chains = []
-	accepting_chains = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
+	request_return_contents.emit(cur_links)
+	cur_links = []
+	accepting_links = [GlobalConsts.FUNCTION, GlobalConsts.BLOCK]
 	text = ""
 
 
 func evaluate(): # algorithm for converting string of operations into an output
+	if not check_if_chain_valid(cur_links):
+		return null
+	
 	var initial_value = 0
 	var values_arr = []
 	
-	for chain in cur_chains:
-		values_arr.append(chain.chain_value)
+	for link in cur_links:
+		values_arr.append(link.link_value)
 	
 	if values_arr != []:
 		initial_value = values_arr.front()
 	else:
-		return null
+		return 0
 	
 	var i = 0
 	while i < len(values_arr) - 1:
@@ -63,4 +65,11 @@ func evaluate(): # algorithm for converting string of operations into an output
 		initial_value = operation.call(operand_a, operand_b)
 		i += 2 + j
 	
-	print(initial_value)
+	return initial_value
+
+
+func check_if_chain_valid(link : Array):
+	if not link.back() is Number:
+		return false
+	else:
+		return true

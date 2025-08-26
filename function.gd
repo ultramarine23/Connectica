@@ -1,8 +1,9 @@
-extends Chain
+extends Link
+class_name Function
 
 func _init():
-	chain_type = GlobalConsts.FUNCTION
-	chain_value = percentage
+	link_type = GlobalConsts.FUNCTION
+	link_value = percentage
 	text = "%"
 
 func percentage(a):

@@ -1,8 +1,9 @@
-extends Chain
+extends Link
+class_name Operation
 
 func _init():
-	chain_type = GlobalConsts.CONNECTOR
-	chain_value = sum
+	link_type = GlobalConsts.CONNECTOR
+	link_value = sum
 
 
 func sum(a, b):

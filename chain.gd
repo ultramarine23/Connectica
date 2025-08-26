@@ -1,14 +1,14 @@
 extends Button
-class_name Chain
+class_name Link
 
-var chain_type : int = GlobalConsts.BLOCK
-var chain_value # variant variable, can be int, float or callable
+var link_type : int = GlobalConsts.BLOCK
+var link_value # variant variable, can be int, float or callable
 
-signal chain_pressed(chain : Button)
+signal link_pressed(link : Button)
 
 func _ready():
 	pressed.connect(on_pressed)
 
 func on_pressed():
-	chain_pressed.emit(self)
+	link_pressed.emit(self)
 	get_parent().remove_child(self)

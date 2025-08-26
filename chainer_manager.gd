@@ -2,10 +2,10 @@ extends Node
 
 var currently_active_chainer : ActionChainer
 
-@onready var chains_manager = $ChainsManager
+@onready var links_manager = $ChainsManager
 
 var chainers = []
-var chains = []
+var links = []
 
 
 func _ready():
@@ -15,11 +15,11 @@ func _ready():
 			child.button_down.connect(on_chainer_selected.bind(child))
 			child.request_return_contents.connect(on_return_contents_requested)
 	
-	chains_manager.chain_selected.connect(add_chain_to_chainer)
+	links_manager.link_selected.connect(add_link_to_chainer)
 
 
 func _process(delta):
-	toggle_chain_availability()
+	toggle_link_availability()
 
 
 func on_chainer_selected(sel_chainer : ActionChainer):
@@ -30,20 +30,20 @@ func on_chainer_selected(sel_chainer : ActionChainer):
 	currently_active_chainer = sel_chainer
 
 
-func toggle_chain_availability():
-	for chain in chains_manager.get_children():
+func toggle_link_availability():
+	for link in links_manager.get_children():
 		if currently_active_chainer == null:
-			chain.disabled = true
-		elif currently_active_chainer.accepting_chains.has(chain.chain_type):
-			chain.disabled = false
+			link.disabled = true
+		elif currently_active_chainer.accepting_links.has(link.link_type):
+			link.disabled = false
 		else:
-			chain.disabled = true
+			link.disabled = true
 
 
-func add_chain_to_chainer(chain : Chain):
-	currently_active_chainer.add_chain(chain)
+func add_link_to_chainer(link : Link):
+	currently_active_chainer.add_link(link)
 
 
 func on_return_contents_requested(contents : Array):
-	for chain in contents:
-		chains_manager.add_child(chain)
+	for link in contents:
+		links_manager.add_child(link)
