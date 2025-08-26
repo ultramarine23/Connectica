@@ -15,3 +15,5 @@ enum ChainValues {
 const BLOCK = 0
 const CONNECTOR = 1
 const FUNCTION = 2
+
+const PAUSE_DUR = 0.5

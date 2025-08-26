@@ -8,7 +8,10 @@ var next_turn_intent : TurnIntent = null
 
 func _ready():
 	health_manager.hp_depleted.connect(on_hp_depleted)
+	health_manager.initialize_hp()
 
+func perform_attack(target : BattleEntity, damage : int):
+	target.receive_attack(damage)
 
 func receive_attack(damage_dealt : int):
 	health_manager.deduct_hp(damage_dealt)

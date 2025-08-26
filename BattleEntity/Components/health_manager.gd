@@ -12,9 +12,11 @@ var block : int
 signal hp_depleted
 
 func _ready():
-	health = max_hp
-	deduct_hp(0)
 	Signals.round_ended.connect(on_round_end)
+
+func initialize_hp():
+	health = max_hp
+	update_health_ui()
 
 func deduct_hp(amount : int):
 	# take block into consideration
@@ -24,12 +26,15 @@ func deduct_hp(amount : int):
 		amount = 0
 	
 	health -= amount
-	health_bar.size.x = 96 * float(health) / float(max_hp)
-	
-	health_label.text = str(health) + " / " + str(max_hp)
+	update_health_ui()
 	
 	if health <= 0:
 		hp_depleted.emit()
+
+func update_health_ui():
+	health_bar.size.x = 96 * float(health) / float(max_hp)
+	health_label.text = str(health) + " / " + str(max_hp)
+
 
 func add_block(amount : int):
 	block += amount

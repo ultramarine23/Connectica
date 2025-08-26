@@ -74,3 +74,8 @@ func check_if_chainers_valid():
 		return false
 	else:
 		return true
+
+func clear_all_chainers():
+	attack_chainer.clear_links()
+	block_chainer.clear_links()
+	draw_chainer.clear_links()

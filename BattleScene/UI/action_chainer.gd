@@ -31,6 +31,9 @@ func add_link(link : Link):
 
 func return_contents():
 	request_return_contents.emit(cur_links)
+	clear_links()
+
+func clear_links():
 	cur_links = []
 	accepting_links = [Consts.FUNCTION, Consts.BLOCK]
 	text = ""

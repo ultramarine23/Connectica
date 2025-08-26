@@ -15,3 +15,10 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_nw7r7")
 
 [node name="HealthManager" parent="." instance=ExtResource("3_r0pvl")]
+
+[node name="IntentInd" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -120.0
+offset_right = 40.0
+offset_bottom = -97.0
+text = "intent:"
