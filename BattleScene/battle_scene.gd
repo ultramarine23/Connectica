@@ -60,4 +60,7 @@ func transition_phase():
 	var additional_draws = floor(float(BattleInfo.player_intent.draw_intent) / 5.0)
 	Managers.links_manager.draw_links(3, Consts.NUMBER)
 	Managers.links_manager.draw_links(2 + additional_draws)
+	
+	BattleInfo.player.health_manager.reset_block()
+	
 	await get_tree().create_timer(Consts.PAUSE_DUR).timeout

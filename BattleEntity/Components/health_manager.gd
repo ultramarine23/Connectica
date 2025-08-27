@@ -53,6 +53,12 @@ func add_block(amount : int):
 	block += amount
 	update_health_ui()
 
+
+func reset_block():
+	block = 0
+	update_health_ui()
+
+
 func on_round_end():
 	# reset block
 	block = 0
