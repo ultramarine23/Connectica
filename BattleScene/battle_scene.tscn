@@ -74,6 +74,16 @@ offset_bottom = 31.0
 text = "Probabilities"
 horizontal_alignment = 1
 
+[node name="GridContainer" type="GridContainer" parent="ChainerManager/PoolPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 328.0
+offset_bottom = 232.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
 [node name="AttackChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0
 offset_top = 328.0
