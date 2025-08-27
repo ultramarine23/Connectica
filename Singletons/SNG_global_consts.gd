@@ -19,3 +19,5 @@ const FUNCTION = 2
 const PAUSE_DUR = 0.8
 const MED_PAUSE_DUR = 1.3
 const LONG_PAUSE_DUR = 1.8
+
+const CODE_BATTLE_OVER = -2

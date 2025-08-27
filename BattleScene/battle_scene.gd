@@ -6,17 +6,30 @@ func _ready():
 	BattleInfo.is_battle_over = false
 	BattleInfo.level_rarity_table = preload("res://L1_rarity_table.tres")
 	randomize()
-	start_round()
+	await get_tree().create_timer(Consts.PAUSE_DUR).timeout
+	
+	await do_battle()
+	Signals.battle_ended.emit()
 
 
-func start_round():
+func do_battle():
+	Signals.battle_started.emit()
 	Managers.links_manager.draw_links(3, Consts.NUMBER)
-	Managers.links_manager.draw_links(2)
+	Managers.links_manager.draw_links(1, Consts.OPERATION)
+	Managers.links_manager.draw_links(1, Consts.FUNCTION)
 	
 	while BattleInfo.is_battle_over == false:
-		await preexecution_phase()
-		await execution_phase()
-		await transition_phase()
+		Signals.round_started.emit()
+		if await preexecution_phase() == Consts.CODE_BATTLE_OVER:
+			print("RAH")
+			return
+		if await execution_phase() == Consts.CODE_BATTLE_OVER:
+			print("RAH")
+			return
+		if await transition_phase() == Consts.CODE_BATTLE_OVER:
+			print("RAH")
+			return
+		Signals.round_ended.emit()
 
 
 func preexecution_phase():
@@ -49,9 +62,15 @@ func execution_phase():
 	for intent in BattleInfo.enemy_intents:
 		intent.execute_attack()
 		await get_tree().create_timer(Consts.MED_PAUSE_DUR).timeout
+		
+		if check_if_battle_over():
+			return Consts.CODE_BATTLE_OVER
 	
 	BattleInfo.player_intent.execute_attack()
 	await get_tree().create_timer(Consts.MED_PAUSE_DUR).timeout
+	
+	if check_if_battle_over():
+		return Consts.CODE_BATTLE_OVER
 
 
 func transition_phase():
@@ -63,3 +82,11 @@ func transition_phase():
 	BattleInfo.player.health_manager.reset_block()
 	
 	await get_tree().create_timer(Consts.LONG_PAUSE_DUR).timeout
+
+
+func check_if_battle_over():
+	print(BattleInfo.enemies, BattleInfo.player)
+	if BattleInfo.enemies == [] or BattleInfo.player == null:
+		return true
+	else:
+		return false

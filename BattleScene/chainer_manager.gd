@@ -88,7 +88,7 @@ func clear_all_chainers():
 func on_pool_viewer_toggled(is_on : bool):
 	if is_on:
 		var move_tween = create_tween()
-		move_tween.tween_property(pool_panel, "position:y", links_panel.position.y, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		move_tween.tween_property(pool_panel, "position:y", links_panel.position.y, 0.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	else:
 		var move_tween = create_tween()
-		move_tween.tween_property(pool_panel, "position:y", 552, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		move_tween.tween_property(pool_panel, "position:y", 552, 0.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)

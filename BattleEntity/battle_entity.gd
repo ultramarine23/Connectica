@@ -34,4 +34,9 @@ func receive_attack(damage_dealt : int):
 
 func on_hp_depleted():
 	is_dead = true
+	if self is Enemy:
+		BattleInfo.enemies.erase(self)
+	else:
+		BattleInfo.player = null
+	
 	queue_free()

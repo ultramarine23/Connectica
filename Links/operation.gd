@@ -3,7 +3,7 @@ class_name Operation
 
 func _init():
 	link_type = Consts.OPERATION
-	link_value = sum
+	link_value = product
 
 
 func sum(a, b):

@@ -66,6 +66,14 @@ offset_right = 896.0
 offset_bottom = 784.0
 color = Color(0.45098, 0.247059, 0.164706, 1)
 
+[node name="Label" type="Label" parent="ChainerManager/PoolPanel"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 328.0
+offset_bottom = 31.0
+text = "Probabilities"
+horizontal_alignment = 1
+
 [node name="AttackChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0
 offset_top = 328.0
