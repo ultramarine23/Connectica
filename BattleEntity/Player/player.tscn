@@ -1,15 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://1or4eq5w3uoy"]
+[gd_scene load_steps=8 format=3 uid="uid://1or4eq5w3uoy"]
 
 [ext_resource type="Script" path="res://BattleEntity/Player/player.gd" id="1_7bx07"]
 [ext_resource type="Texture2D" uid="uid://kgos0n82twh7" path="res://BattleEntity/Player/player.png" id="2_844cv"]
 [ext_resource type="PackedScene" uid="uid://de05qelj2shxy" path="res://BattleEntity/Components/health_manager.tscn" id="2_l6nsy"]
+[ext_resource type="Material" uid="uid://bj5reu6t5km7c" path="res://blink_shader.tres" id="2_ofwpv"]
+
+[sub_resource type="Animation" id="Animation_4i3ou"]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_me4jk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0ft0"]
+_data = {
+"RESET": SubResource("Animation_me4jk"),
+"blink": SubResource("Animation_4i3ou")
+}
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_7bx07")
 
 [node name="Icon" type="Sprite2D" parent="."]
+material = ExtResource("2_ofwpv")
 position = Vector2(0, -64)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_844cv")
 
 [node name="HealthManager" parent="." instance=ExtResource("2_l6nsy")]
+
+[node name="BlinkAnims" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s0ft0")
+}
+autoplay = "RESET"

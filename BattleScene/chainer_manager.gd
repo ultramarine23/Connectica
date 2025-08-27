@@ -7,6 +7,7 @@ var currently_active_chainer : ActionChainer
 @onready var attack_chainer = $AttackChainer
 @onready var block_chainer = $BlockChainer
 @onready var draw_chainer = $DrawChainer
+@onready var pool_viewer = $PoolViewer
 
 var chainers = []
 var links = []
@@ -23,6 +24,7 @@ func _ready():
 			child.request_return_contents.connect(on_return_contents_requested)
 	
 	links_manager.link_selected.connect(add_link_to_chainer)
+	pool_viewer.toggled.connect(on_pool_viewer_toggled)
 
 
 func _process(delta):
@@ -79,3 +81,7 @@ func clear_all_chainers():
 	attack_chainer.clear_links()
 	block_chainer.clear_links()
 	draw_chainer.clear_links()
+
+
+func on_pool_viewer_toggled():
+	pass

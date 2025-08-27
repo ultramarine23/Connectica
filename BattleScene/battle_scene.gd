@@ -44,23 +44,22 @@ func preexecution_phase():
 
 func execution_phase():
 	BattleInfo.player_intent.execute_block()
-	await get_tree().create_timer(Consts.PAUSE_DUR).timeout
+	await get_tree().create_timer(Consts.MED_PAUSE_DUR).timeout
 	
 	for intent in BattleInfo.enemy_intents:
 		intent.execute_attack()
-		await get_tree().create_timer(Consts.PAUSE_DUR).timeout
+		await get_tree().create_timer(Consts.MED_PAUSE_DUR).timeout
 	
 	BattleInfo.player_intent.execute_attack()
-	await get_tree().create_timer(Consts.PAUSE_DUR).timeout
+	await get_tree().create_timer(Consts.MED_PAUSE_DUR).timeout
 
 
 func transition_phase():
 	BattleInfo.enemy_intents.clear()
 	
 	var additional_draws = floor(float(BattleInfo.player_intent.draw_intent) / 5.0)
-	Managers.links_manager.draw_links(3, Consts.NUMBER)
-	Managers.links_manager.draw_links(2 + additional_draws)
+	Managers.links_manager.draw_links(3 + additional_draws)
 	
 	BattleInfo.player.health_manager.reset_block()
 	
-	await get_tree().create_timer(Consts.PAUSE_DUR).timeout
+	await get_tree().create_timer(Consts.LONG_PAUSE_DUR).timeout

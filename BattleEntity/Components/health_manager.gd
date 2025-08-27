@@ -37,6 +37,8 @@ func deduct_hp(amount : int):
 	
 	if health <= 0:
 		hp_depleted.emit()
+	
+	return amount
 
 func update_health_ui():
 	health_bar.size.x = 96 * float(health) / float(max_hp)

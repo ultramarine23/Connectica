@@ -34,6 +34,21 @@ position = Vector2(768, 240)
 [node name="ChainerManager" type="Node" parent="."]
 script = ExtResource("3_76cat")
 
+[node name="ColorRect" type="ColorRect" parent="ChainerManager"]
+offset_left = 568.0
+offset_top = 320.0
+offset_right = 896.0
+offset_bottom = 552.0
+color = Color(0.670588, 0.392157, 0.27451, 1)
+
+[node name="PoolViewer" type="Button" parent="ChainerManager"]
+offset_left = 896.0
+offset_top = 328.0
+offset_right = 938.0
+offset_bottom = 359.0
+toggle_mode = true
+text = "Pool"
+
 [node name="LinksManager" type="GridContainer" parent="ChainerManager"]
 offset_left = 576.0
 offset_top = 328.0
@@ -97,3 +112,10 @@ script = ExtResource("12_yiov7")
 position = Vector2(0, -236)
 texture = ExtResource("10_dsgvp")
 centered = false
+
+[node name="LevelInd" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 56.0
+text = "Level 1"

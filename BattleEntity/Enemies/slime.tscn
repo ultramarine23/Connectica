@@ -1,15 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3cfy30i7gunq"]
+[gd_scene load_steps=9 format=3 uid="uid://b3cfy30i7gunq"]
 
 [ext_resource type="Script" path="res://BattleEntity/Enemies/slime.gd" id="1_a1n5p"]
 [ext_resource type="Texture2D" uid="uid://di787mfh8whru" path="res://BattleEntity/Enemies/Slime/slime.png" id="2_nw7r7"]
 [ext_resource type="Resource" uid="uid://cskodcidpoj42" path="res://BattleEntity/Enemies/Slime/slime_stats.tres" id="2_tfm08"]
+[ext_resource type="Material" uid="uid://bj5reu6t5km7c" path="res://blink_shader.tres" id="3_hb04c"]
 [ext_resource type="PackedScene" uid="uid://de05qelj2shxy" path="res://BattleEntity/Components/health_manager.tscn" id="3_r0pvl"]
+
+[sub_resource type="Animation" id="Animation_7cktt"]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bu8wc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1jhcu"]
+_data = {
+"RESET": SubResource("Animation_bu8wc"),
+"blink": SubResource("Animation_7cktt")
+}
 
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_a1n5p")
 stats_res = ExtResource("2_tfm08")
 
 [node name="Icon" type="Sprite2D" parent="."]
+material = ExtResource("3_hb04c")
 position = Vector2(0, -32)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_nw7r7")
@@ -22,3 +60,9 @@ offset_top = -120.0
 offset_right = 40.0
 offset_bottom = -97.0
 text = "intent:"
+
+[node name="BlinkAnims" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1jhcu")
+}
+autoplay = "RESET"
