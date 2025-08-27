@@ -8,6 +8,8 @@ var currently_active_chainer : ActionChainer
 @onready var block_chainer = $BlockChainer
 @onready var draw_chainer = $DrawChainer
 @onready var pool_viewer = $PoolViewer
+@onready var links_panel = $LinksPanel
+@onready var pool_panel = $PoolPanel
 
 var chainers = []
 var links = []
@@ -83,5 +85,10 @@ func clear_all_chainers():
 	draw_chainer.clear_links()
 
 
-func on_pool_viewer_toggled():
-	pass
+func on_pool_viewer_toggled(is_on : bool):
+	if is_on:
+		var move_tween = create_tween()
+		move_tween.tween_property(pool_panel, "position:y", links_panel.position.y, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	else:
+		var move_tween = create_tween()
+		move_tween.tween_property(pool_panel, "position:y", 552, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)

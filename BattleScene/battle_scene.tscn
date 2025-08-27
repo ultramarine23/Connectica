@@ -34,13 +34,6 @@ position = Vector2(768, 240)
 [node name="ChainerManager" type="Node" parent="."]
 script = ExtResource("3_76cat")
 
-[node name="ColorRect" type="ColorRect" parent="ChainerManager"]
-offset_left = 568.0
-offset_top = 320.0
-offset_right = 896.0
-offset_bottom = 552.0
-color = Color(0.670588, 0.392157, 0.27451, 1)
-
 [node name="PoolViewer" type="Button" parent="ChainerManager"]
 offset_left = 896.0
 offset_top = 328.0
@@ -48,6 +41,13 @@ offset_right = 938.0
 offset_bottom = 359.0
 toggle_mode = true
 text = "Pool"
+
+[node name="LinksPanel" type="ColorRect" parent="ChainerManager"]
+offset_left = 568.0
+offset_top = 320.0
+offset_right = 896.0
+offset_bottom = 552.0
+color = Color(0.670588, 0.392157, 0.27451, 1)
 
 [node name="LinksManager" type="GridContainer" parent="ChainerManager"]
 offset_left = 576.0
@@ -58,6 +58,13 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 5
 script = ExtResource("4_j0lnd")
+
+[node name="PoolPanel" type="ColorRect" parent="ChainerManager"]
+offset_left = 568.0
+offset_top = 552.0
+offset_right = 896.0
+offset_bottom = 784.0
+color = Color(0.45098, 0.247059, 0.164706, 1)
 
 [node name="AttackChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0
