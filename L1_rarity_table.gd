@@ -14,8 +14,8 @@ func _init():
 	}
 	
 	category_chances = {
-		Consts.NUMBER : 90,
-		Consts.OPERATION : 5,
-		Consts.FUNCTION : 5,
+		Consts.NUMBER : 30,
+		Consts.OPERATION : 50,
+		Consts.FUNCTION : 20,
 	}
 	super()

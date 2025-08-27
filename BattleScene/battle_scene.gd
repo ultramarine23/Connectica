@@ -8,7 +8,11 @@ func _ready():
 	randomize()
 	start_round()
 
+
 func start_round():
+	Managers.links_manager.draw_links(3, Consts.NUMBER)
+	Managers.links_manager.draw_links(2)
+	
 	while BattleInfo.is_battle_over == false:
 		await preexecution_phase()
 		await execution_phase()
@@ -39,12 +43,21 @@ func preexecution_phase():
 
 
 func execution_phase():
+	BattleInfo.player_intent.execute_block()
+	await get_tree().create_timer(Consts.PAUSE_DUR).timeout
+	
 	for intent in BattleInfo.enemy_intents:
 		intent.execute_attack()
 		await get_tree().create_timer(Consts.PAUSE_DUR).timeout
 	
 	BattleInfo.player_intent.execute_attack()
+	await get_tree().create_timer(Consts.PAUSE_DUR).timeout
 
 
 func transition_phase():
 	BattleInfo.enemy_intents.clear()
+	
+	var additional_draws = floor(float(BattleInfo.player_intent.draw_intent) / 5.0)
+	Managers.links_manager.draw_links(3, Consts.NUMBER)
+	Managers.links_manager.draw_links(2 + additional_draws)
+	await get_tree().create_timer(Consts.PAUSE_DUR).timeout

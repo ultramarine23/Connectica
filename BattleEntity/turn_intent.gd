@@ -29,7 +29,5 @@ func execute_attack():
 	user.perform_attack(target, attack_intent)
 
 func execute_block():
-	pass
+	user.health_manager.add_block(block_intent)
 
-func execute_draw():
-	pass

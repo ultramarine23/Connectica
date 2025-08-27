@@ -1,16 +1,15 @@
 extends GridContainer
+class_name LinksManager
 
 signal link_selected(link)
+
 
 func _ready():
 	for child in get_children():
 		child.link_pressed.connect(on_link_pressed)
 	
 	child_entered_tree.connect(on_child_entered_tree)
-	
-	await get_tree().current_scene.ready
-	draw_links(3, Consts.NUMBER)
-	draw_links(2)
+	Managers.links_manager = self
 
 
 func on_child_entered_tree(child : Link):
@@ -24,6 +23,9 @@ func generate_links():
 
 func draw_links(count : int, type : int = -1):
 	for i in count:
+		if get_child_count() >= 15:
+			return
+		
 		var link = BattleInfo.level_rarity_table.draw_link(type)
 		var link_inst = link.instantiate()
 		add_child(link_inst)
