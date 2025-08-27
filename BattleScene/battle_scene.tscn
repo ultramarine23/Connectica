@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2q8r7gda30hl"]
+[gd_scene load_steps=11 format=3 uid="uid://d2q8r7gda30hl"]
 
 [ext_resource type="PackedScene" uid="uid://1or4eq5w3uoy" path="res://BattleEntity/Player/player.tscn" id="1_3nuks"]
 [ext_resource type="Script" path="res://BattleScene/battle_scene.gd" id="1_ghiv6"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b3cfy30i7gunq" path="res://BattleEntity/Enemies/slime.tscn" id="2_b8qel"]
 [ext_resource type="Script" path="res://BattleScene/chainer_manager.gd" id="3_76cat"]
 [ext_resource type="PackedScene" uid="uid://bmsob22bus8gg" path="res://BattleScene/UI/action_chainer.tscn" id="3_hbeln"]
+[ext_resource type="Texture2D" uid="uid://dlr64no5oqn3i" path="res://BattleScene/UI/UI_background.png" id="3_l6n37"]
 [ext_resource type="Script" path="res://BattleScene/links_manager.gd" id="4_j0lnd"]
-[ext_resource type="Texture2D" uid="uid://bkl3s74qoyv15" path="res://BattleEntity/foreground.png" id="10_elgfk"]
+[ext_resource type="Texture2D" uid="uid://b2ue0c4ox0lam" path="res://BattleScene/UI/foreground3.png" id="10_dsgvp"]
 [ext_resource type="Script" path="res://BattleScene/round_init_button.gd" id="12_yiov7"]
 
 [node name="BattleScene" type="Node2D"]
@@ -15,23 +16,29 @@ script = ExtResource("1_ghiv6")
 metadata/_edit_horizontal_guides_ = [552.0]
 
 [node name="BattlegroundAndBackground" type="Sprite2D" parent="."]
-position = Vector2(480, 272)
+position = Vector2(480, 256)
 texture = ExtResource("2_a04a8")
 
+[node name="UiBackground" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.894118)
+position = Vector2(0, 304)
+texture = ExtResource("3_l6n37")
+centered = false
+
 [node name="Player" parent="." instance=ExtResource("1_3nuks")]
-position = Vector2(160, 232)
+position = Vector2(192, 208)
 
 [node name="Slime" parent="." instance=ExtResource("2_b8qel")]
-position = Vector2(736, 232)
+position = Vector2(768, 208)
 
 [node name="ChainerManager" type="Node" parent="."]
 script = ExtResource("3_76cat")
 
 [node name="LinksManager" type="GridContainer" parent="ChainerManager"]
 offset_left = 576.0
-offset_top = 320.0
+offset_top = 328.0
 offset_right = 896.0
-offset_bottom = 512.0
+offset_bottom = 520.0
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 5
@@ -39,61 +46,55 @@ script = ExtResource("4_j0lnd")
 
 [node name="AttackChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0
-offset_top = 320.0
+offset_top = 328.0
 offset_right = 512.0
-offset_bottom = 384.0
+offset_bottom = 376.0
 
 [node name="BlockChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0
-offset_top = 392.0
+offset_top = 400.0
 offset_right = 512.0
-offset_bottom = 456.0
+offset_bottom = 448.0
 chainer_type = 1
 
 [node name="DrawChainer" parent="ChainerManager" instance=ExtResource("3_hbeln")]
 offset_left = 128.0
-offset_top = 464.0
+offset_top = 472.0
 offset_right = 512.0
-offset_bottom = 528.0
+offset_bottom = 520.0
 chainer_type = 2
 
 [node name="Label" type="Label" parent="ChainerManager"]
 offset_left = 72.0
-offset_top = 312.0
+offset_top = 320.0
 offset_right = 122.0
-offset_bottom = 335.0
+offset_bottom = 343.0
 text = "Attack"
 
 [node name="Label2" type="Label" parent="ChainerManager"]
 offset_left = 72.0
-offset_top = 384.0
+offset_top = 392.0
 offset_right = 122.0
-offset_bottom = 407.0
+offset_bottom = 415.0
 text = "Block"
 
 [node name="Label3" type="Label" parent="ChainerManager"]
 offset_left = 72.0
-offset_top = 456.0
+offset_top = 464.0
 offset_right = 122.0
-offset_bottom = 479.0
+offset_bottom = 487.0
 text = "Draw"
 
-[node name="Foreground" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(480, 40)
-texture = ExtResource("10_elgfk")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_top = 288.0
-offset_right = 960.0
-offset_bottom = 552.0
-mouse_filter = 2
-color = Color(0.25098, 0.317647, 0.121569, 1)
-
 [node name="RoundInitButton" type="Button" parent="."]
-offset_left = 776.0
-offset_top = 40.0
-offset_right = 928.0
-offset_bottom = 104.0
+offset_left = 792.0
+offset_top = 16.0
+offset_right = 944.0
+offset_bottom = 80.0
 text = "Start Round"
 script = ExtResource("12_yiov7")
+
+[node name="Foreground3" type="Sprite2D" parent="."]
+position = Vector2(0, -72)
+scale = Vector2(1, 0.7)
+texture = ExtResource("10_dsgvp")
+centered = false
