@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://25evacfjblk4"]
+
+[ext_resource type="Script" path="res://Singletons/SNG_music_bus.gd" id="1_q8jp8"]
+
+[node name="MusicBus" type="AudioStreamPlayer"]
+script = ExtResource("1_q8jp8")

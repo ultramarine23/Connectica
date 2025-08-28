@@ -21,6 +21,7 @@ Consts="*res://Singletons/SNG_global_consts.gd"
 Signals="*res://Singletons/SNG_global_signals.gd"
 BattleInfo="*res://Singletons/SNG_battle_info.gd"
 Managers="*res://Singletons/SNG_managers_registry.gd"
+SFXBus="*res://Singletons/SNG_sfx_bus.tscn"
 
 [display]
 

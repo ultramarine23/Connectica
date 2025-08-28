@@ -9,6 +9,7 @@ offset_bottom = 24.0
 script = ExtResource("1_2627i")
 
 [node name="Popup" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -24.0
 offset_top = -80.0
 offset_right = 88.0
