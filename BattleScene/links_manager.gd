@@ -21,12 +21,12 @@ func generate_links():
 	pass
 
 
-func draw_links(count : int, type : int = -1):
+func add_links_to_hand(count : int):
 	for i in count:
 		if get_child_count() >= 15:
 			return
 		
-		var link = BattleInfo.level_rarity_table.draw_link(type)
+		var link = Managers.pool_manager.draw_link()
 		var link_inst = link.instantiate()
 		add_child(link_inst)
 

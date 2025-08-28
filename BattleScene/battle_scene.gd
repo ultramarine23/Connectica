@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready():
 	BattleInfo.is_battle_over = false
-	BattleInfo.level_rarity_table = preload("res://L1_rarity_table.tres")
+	BattleInfo.level_pool = preload("res://L1_initial_pool.tres")
 	randomize()
 	await get_tree().create_timer(Consts.PAUSE_DUR).timeout
 	
@@ -14,20 +14,15 @@ func _ready():
 
 func do_battle():
 	Signals.battle_started.emit()
-	Managers.links_manager.draw_links(3, Consts.NUMBER)
-	Managers.links_manager.draw_links(1, Consts.OPERATION)
-	Managers.links_manager.draw_links(1, Consts.FUNCTION)
+	Managers.links_manager.add_links_to_hand(5)
 	
 	while BattleInfo.is_battle_over == false:
 		Signals.round_started.emit()
 		if await preexecution_phase() == Consts.CODE_BATTLE_OVER:
-			print("RAH")
 			return
 		if await execution_phase() == Consts.CODE_BATTLE_OVER:
-			print("RAH")
 			return
 		if await transition_phase() == Consts.CODE_BATTLE_OVER:
-			print("RAH")
 			return
 		Signals.round_ended.emit()
 
@@ -77,7 +72,7 @@ func transition_phase():
 	BattleInfo.enemy_intents.clear()
 	
 	var additional_draws = floor(float(BattleInfo.player_intent.draw_intent) / 5.0)
-	Managers.links_manager.draw_links(3 + additional_draws)
+	Managers.links_manager.add_links_to_hand(3 + additional_draws)
 	
 	BattleInfo.player.health_manager.reset_block()
 	

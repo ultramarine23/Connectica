@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2q8r7gda30hl"]
+[gd_scene load_steps=13 format=3 uid="uid://d2q8r7gda30hl"]
 
 [ext_resource type="PackedScene" uid="uid://1or4eq5w3uoy" path="res://BattleEntity/Player/player.tscn" id="1_3nuks"]
 [ext_resource type="Script" path="res://BattleScene/battle_scene.gd" id="1_ghiv6"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bmsob22bus8gg" path="res://BattleScene/UI/action_chainer.tscn" id="3_hbeln"]
 [ext_resource type="Texture2D" uid="uid://dlr64no5oqn3i" path="res://BattleScene/UI/UI_background.png" id="3_l6n37"]
 [ext_resource type="Script" path="res://BattleScene/links_manager.gd" id="4_j0lnd"]
+[ext_resource type="Script" path="res://Singletons/pool_manager.gd" id="6_j1xk0"]
+[ext_resource type="Script" path="res://BattleScene/UI/pool_panel.gd" id="8_pgmmx"]
 [ext_resource type="Texture2D" uid="uid://b2ue0c4ox0lam" path="res://BattleScene/UI/foreground3.png" id="10_dsgvp"]
 [ext_resource type="Script" path="res://BattleScene/round_init_button.gd" id="12_yiov7"]
 
@@ -30,6 +32,9 @@ position = Vector2(192, 240)
 
 [node name="Slime" parent="." instance=ExtResource("2_b8qel")]
 position = Vector2(768, 240)
+
+[node name="PoolManager" type="Node" parent="."]
+script = ExtResource("6_j1xk0")
 
 [node name="ChainerManager" type="Node" parent="."]
 script = ExtResource("3_76cat")
@@ -65,13 +70,14 @@ offset_top = 552.0
 offset_right = 896.0
 offset_bottom = 784.0
 color = Color(0.45098, 0.247059, 0.164706, 1)
+script = ExtResource("8_pgmmx")
 
 [node name="Label" type="Label" parent="ChainerManager/PoolPanel"]
 layout_mode = 0
 offset_top = 8.0
 offset_right = 328.0
 offset_bottom = 31.0
-text = "Probabilities"
+text = "Pool"
 horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="ChainerManager/PoolPanel"]
