@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2lyovqd0xcxe"]
+
+[ext_resource type="Script" path="res://Singletons/SNG_battle_info.gd" id="1_l7u8l"]
+
+[node name="BattleInfo" type="Node"]
+script = ExtResource("1_l7u8l")

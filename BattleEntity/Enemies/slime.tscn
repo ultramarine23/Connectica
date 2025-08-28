@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://BattleEntity/Enemies/slime.gd" id="1_a1n5p"]
 [ext_resource type="Texture2D" uid="uid://di787mfh8whru" path="res://BattleEntity/Enemies/Slime/slime.png" id="2_nw7r7"]
 [ext_resource type="Resource" uid="uid://cskodcidpoj42" path="res://BattleEntity/Enemies/Slime/slime_stats.tres" id="2_tfm08"]
-[ext_resource type="Material" uid="uid://bj5reu6t5km7c" path="res://blink_shader.tres" id="3_hb04c"]
+[ext_resource type="Material" uid="uid://bj5reu6t5km7c" path="res://MiscAssets/blink_shader.tres" id="3_hb04c"]
 [ext_resource type="PackedScene" uid="uid://de05qelj2shxy" path="res://BattleEntity/Components/health_manager.tscn" id="3_r0pvl"]
 
 [sub_resource type="Animation" id="Animation_bu8wc"]

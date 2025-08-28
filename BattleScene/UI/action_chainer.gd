@@ -18,7 +18,7 @@ func _ready():
 
 func add_link(link : Link):
 	cur_links.append(link)
-	text += link.text + " "
+	text += link.value_label.text + " "
 	
 	match link.link_type:
 		Consts.NUMBER:

@@ -2,24 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://1or4eq5w3uoy" path="res://BattleEntity/Player/player.tscn" id="1_3nuks"]
 [ext_resource type="Script" path="res://BattleScene/battle_scene.gd" id="1_ghiv6"]
-[ext_resource type="Texture2D" uid="uid://rgrgnpaw0lv1" path="res://BattleEntity/battleground and background.png" id="2_a04a8"]
 [ext_resource type="PackedScene" uid="uid://b3cfy30i7gunq" path="res://BattleEntity/Enemies/slime.tscn" id="2_b8qel"]
+[ext_resource type="Texture2D" uid="uid://behuyt0yfgvl1" path="res://MiscAssets/battleground and background 4.png" id="2_rqwci"]
 [ext_resource type="Script" path="res://BattleScene/chainer_manager.gd" id="3_76cat"]
 [ext_resource type="PackedScene" uid="uid://bmsob22bus8gg" path="res://BattleScene/UI/action_chainer.tscn" id="3_hbeln"]
 [ext_resource type="Texture2D" uid="uid://dlr64no5oqn3i" path="res://BattleScene/UI/UI_background.png" id="3_l6n37"]
 [ext_resource type="Script" path="res://BattleScene/links_manager.gd" id="4_j0lnd"]
-[ext_resource type="Script" path="res://Singletons/pool_manager.gd" id="6_j1xk0"]
+[ext_resource type="Script" path="res://BattleScene/pool_manager.gd" id="6_j1xk0"]
 [ext_resource type="Script" path="res://BattleScene/UI/pool_panel.gd" id="8_pgmmx"]
-[ext_resource type="Texture2D" uid="uid://b2ue0c4ox0lam" path="res://BattleScene/UI/foreground3.png" id="10_dsgvp"]
+[ext_resource type="Texture2D" uid="uid://bwfueoi101k6t" path="res://MiscAssets/foreground4.png" id="12_0gyru"]
 [ext_resource type="Script" path="res://BattleScene/round_init_button.gd" id="12_yiov7"]
 
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_ghiv6")
-metadata/_edit_horizontal_guides_ = [552.0, 240.0]
+metadata/_edit_horizontal_guides_ = [552.0, 304.0]
 
 [node name="BattlegroundAndBackground" type="Sprite2D" parent="."]
 position = Vector2(480, 256)
-texture = ExtResource("2_a04a8")
+texture = ExtResource("2_rqwci")
 
 [node name="UiBackground" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.894118)
@@ -140,8 +140,8 @@ text = "Start Round"
 script = ExtResource("12_yiov7")
 
 [node name="Foreground3" type="Sprite2D" parent="."]
-position = Vector2(0, -236)
-texture = ExtResource("10_dsgvp")
+position = Vector2(0, -32)
+texture = ExtResource("12_0gyru")
 centered = false
 
 [node name="LevelInd" type="Label" parent="."]

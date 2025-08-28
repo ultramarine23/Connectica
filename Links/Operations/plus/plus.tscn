@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5h7mmgd8ipfo"]
+
+[ext_resource type="Script" path="res://Links/Operations/plus/plus.gd" id="1_pvmtg"]
+[ext_resource type="Texture2D" uid="uid://dgddbjd2jbmio" path="res://Links/operand_block pressed.png" id="2_oiafb"]
+[ext_resource type="Texture2D" uid="uid://8bd2vi2efu3n" path="res://Links/operand_block.png" id="2_uqquw"]
+[ext_resource type="Texture2D" uid="uid://c7y17k4610yni" path="res://Links/operand_block hover.png" id="3_cx6y4"]
+[ext_resource type="Texture2D" uid="uid://mplmwffk0mch" path="res://Links/Operations/plus/plus.png" id="3_vkp7h"]
+[ext_resource type="Texture2D" uid="uid://b1dkp0irw62j4" path="res://Links/disabled.png" id="4_k6r8s"]
+[ext_resource type="FontFile" uid="uid://blub7v7fs601k" path="res://MiscAssets/komika/KOMIKAHB.ttf" id="4_qopce"]
+
+[node name="Plus" type="TextureButton"]
+custom_minimum_size = Vector2(56, 56)
+offset_right = 56.0
+offset_bottom = 56.0
+texture_normal = ExtResource("2_uqquw")
+texture_pressed = ExtResource("2_oiafb")
+texture_hover = ExtResource("3_cx6y4")
+texture_disabled = ExtResource("4_k6r8s")
+script = ExtResource("1_pvmtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_uqquw")
+centered = false
+
+[node name="Plus" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_vkp7h")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 54.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("4_qopce")
+theme_override_font_sizes/font_size = 24
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1

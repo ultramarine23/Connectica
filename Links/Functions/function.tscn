@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://qt7a51y6spqp"]
+
+[ext_resource type="Texture2D" uid="uid://8bd2vi2efu3n" path="res://Links/operand_block.png" id="1_63eq8"]
+[ext_resource type="Script" path="res://Links/Functions/function.gd" id="1_2627i"]
+[ext_resource type="FontFile" uid="uid://blub7v7fs601k" path="res://MiscAssets/komika/KOMIKAHB.ttf" id="2_0fs31"]
+[ext_resource type="Texture2D" uid="uid://dgddbjd2jbmio" path="res://Links/operand_block pressed.png" id="2_hklwj"]
+[ext_resource type="Texture2D" uid="uid://c7y17k4610yni" path="res://Links/operand_block hover.png" id="3_rjakq"]
+[ext_resource type="Texture2D" uid="uid://b1dkp0irw62j4" path="res://Links/disabled.png" id="4_24p64"]
+
+[node name="Function" type="TextureButton"]
+custom_minimum_size = Vector2(56, 56)
+offset_right = 24.0
+offset_bottom = 24.0
+texture_normal = ExtResource("1_63eq8")
+texture_pressed = ExtResource("2_hklwj")
+texture_hover = ExtResource("3_rjakq")
+texture_disabled = ExtResource("4_24p64")
+script = ExtResource("1_2627i")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -2.0
+offset_right = 54.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("2_0fs31")
+theme_override_font_sizes/font_size = 34
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1

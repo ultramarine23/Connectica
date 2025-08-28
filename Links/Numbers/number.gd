@@ -6,5 +6,5 @@ func _init():
 	link_value = randi_range(1, 6)
 
 func _ready():
-	text = str(link_value)
+	value_label.text = str(link_value)
 	super()

@@ -89,6 +89,7 @@ func on_pool_viewer_toggled(is_on : bool):
 	if is_on:
 		var move_tween = create_tween()
 		move_tween.tween_property(pool_panel, "position:y", links_panel.position.y, 0.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		pool_panel.display_probabilities()
 	else:
 		var move_tween = create_tween()
 		move_tween.tween_property(pool_panel, "position:y", 552, 0.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)

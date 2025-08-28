@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://BattleEntity/Player/player.gd" id="1_7bx07"]
 [ext_resource type="Texture2D" uid="uid://kgos0n82twh7" path="res://BattleEntity/Player/player.png" id="2_844cv"]
 [ext_resource type="PackedScene" uid="uid://de05qelj2shxy" path="res://BattleEntity/Components/health_manager.tscn" id="2_l6nsy"]
-[ext_resource type="Material" uid="uid://bj5reu6t5km7c" path="res://blink_shader.tres" id="2_ofwpv"]
+[ext_resource type="Material" uid="uid://bj5reu6t5km7c" path="res://MiscAssets/blink_shader.tres" id="2_ofwpv"]
 
 [sub_resource type="Animation" id="Animation_me4jk"]
 length = 0.001
