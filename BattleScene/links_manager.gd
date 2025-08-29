@@ -26,8 +26,7 @@ func add_links_to_hand(count : int):
 		if get_child_count() >= 15:
 			return
 		
-		var link = Managers.pool_manager.draw_link()
-		var link_inst = link.instantiate()
+		var link_inst = Managers.pool_manager.draw_link()
 		add_child(link_inst)
 
 

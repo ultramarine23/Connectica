@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://brb71v3vy0320" path="res://MiscAssets/chainer_paper.webp" id="5_nkvux"]
 
 [node name="ActionChainer" type="Button"]
-self_modulate = Color(1, 1, 1, 0)
 offset_right = 384.0
 offset_bottom = 48.0
 toggle_mode = true
@@ -23,11 +22,14 @@ texture_pressed = ExtResource("3_h82p1")
 texture_hover = ExtResource("2_6kdys")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 texture = ExtResource("5_nkvux")
 centered = false
 
 [node name="ChainerShader" type="ColorRect" parent="."]
+visible = false
 offset_right = 384.0
 offset_bottom = 48.0
+mouse_filter = 2
 color = Color(0.976471, 0.976471, 0.976471, 0.192157)

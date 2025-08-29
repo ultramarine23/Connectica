@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c62k7xs67jlen"]
+
+[ext_resource type="Texture2D" uid="uid://mplmwffk0mch" path="res://Links/Operations/plus/plus.png" id="2_j2b8k"]
+[ext_resource type="Texture2D" uid="uid://8bd2vi2efu3n" path="res://Links/operand_block.png" id="2_ysboo"]
+
+[node name="PlusIcon" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ysboo")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_j2b8k")
+centered = false

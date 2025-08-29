@@ -9,12 +9,12 @@ func _ready():
 	
 	await get_tree().current_scene.ready
 	load_sample_pool(BattleInfo.level_pool)
-	cur_pool = full_pool.duplicate()
+	refill_cur_pool()
 
 
 func draw_link():
 	if cur_pool.is_empty():
-		cur_pool = full_pool.duplicate()
+		refill_cur_pool()
 	
 	cur_pool.shuffle()
 	return cur_pool.pop_front()
@@ -29,6 +29,12 @@ func draw_link():
 		#result_inst = result.instantiate()
 	#
 	#return result
+
+
+func refill_cur_pool():
+	cur_pool = []
+	for packed_scn in full_pool:
+		cur_pool.append(packed_scn.instantiate())
 
 
 func load_sample_pool(level_pool : SamplePool):
