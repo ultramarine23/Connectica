@@ -1,9 +1,10 @@
-extends Button
+extends TextureButton
 class_name ActionChainer
 
 @export var chainer_type : Consts.Actions
 
 @onready var clear_button = $ClearButton
+@onready var chainer_text = $ChainerText
 @onready var chainer_shader = $ChainerShader
 
 var accepting_links = []
@@ -19,7 +20,7 @@ func _ready():
 
 func add_link(link : Link):
 	cur_links.append(link)
-	text += link.value_label.text + " "
+	chainer_text.text += link.value_label.text + " "
 	
 	match link.link_type:
 		Consts.NUMBER:
@@ -37,7 +38,7 @@ func return_contents():
 func clear_links():
 	cur_links = []
 	accepting_links = [Consts.FUNCTION, Consts.NUMBER]
-	text = ""
+	chainer_text.text = ""
 
 
 func evaluate(): # algorithm for converting string of operations into an output

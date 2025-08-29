@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmsob22bus8gg"]
+[gd_scene load_steps=7 format=3 uid="uid://bmsob22bus8gg"]
 
 [ext_resource type="Script" path="res://BattleScene/UI/action_chainer.gd" id="1_qpwoo"]
 [ext_resource type="Texture2D" uid="uid://dsx6acjrcdvfo" path="res://MiscAssets/clear_normal.webp" id="2_6kdys"]
+[ext_resource type="Texture2D" uid="uid://n0q8qxuxsmmh" path="res://MiscAssets/chainer_pressed.webp" id="2_yjt0e"]
+[ext_resource type="Texture2D" uid="uid://cvbmvfwj71ibq" path="res://MiscAssets/chainer_hover.webp" id="3_axedk"]
 [ext_resource type="Texture2D" uid="uid://kibkl6tag74x" path="res://MiscAssets/clear_pressed.webp" id="3_h82p1"]
 [ext_resource type="Texture2D" uid="uid://brb71v3vy0320" path="res://MiscAssets/chainer_paper.webp" id="5_nkvux"]
 
-[node name="ActionChainer" type="Button"]
+[node name="ActionChainer" type="TextureButton"]
+texture_filter = 1
 offset_right = 384.0
 offset_bottom = 48.0
 toggle_mode = true
+texture_normal = ExtResource("5_nkvux")
+texture_pressed = ExtResource("2_yjt0e")
+texture_hover = ExtResource("3_axedk")
 script = ExtResource("1_qpwoo")
 
 [node name="ClearButton" type="TextureButton" parent="."]
@@ -34,3 +40,8 @@ offset_right = 384.0
 offset_bottom = 48.0
 mouse_filter = 2
 color = Color(0.976471, 0.976471, 0.976471, 0.192157)
+
+[node name="ChainerText" type="Label" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 48.0
