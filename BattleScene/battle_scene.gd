@@ -29,6 +29,7 @@ func do_battle():
 
 func preexecution_phase():
 	# generate enemy turn intents
+	BattleInfo.enemy_intents.clear()
 	for enem in BattleInfo.enemies:
 		BattleInfo.enemy_intents.append(enem.generate_intent())
 	
@@ -69,8 +70,6 @@ func execution_phase():
 
 
 func transition_phase():
-	BattleInfo.enemy_intents.clear()
-	
 	var additional_draws = floor(float(BattleInfo.player_intent.draw_intent) / 5.0)
 	Managers.links_manager.add_links_to_hand(4 + additional_draws)
 	

@@ -33,11 +33,12 @@ func generate_enemies() -> Array:
 	
 	var lowest_cost = costs_arr.back()
 	
-	while difficulty_pts >= lowest_cost:
+	while (difficulty_pts >= lowest_cost) and (len(selected_enemies) < 4):
 		for cost in costs_arr:
 			if cost <= difficulty_pts:
 				difficulty_pts -= cost
 				selected_enemies.append(BattleInfo.enemy_costs.find_key(cost))
+				break
 	
 	var unselected_enemies = difference_arr(enemies_arr, selected_enemies)
 	for enem in unselected_enemies:
