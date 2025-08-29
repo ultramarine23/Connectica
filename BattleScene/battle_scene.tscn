@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2q8r7gda30hl"]
+[gd_scene load_steps=15 format=3 uid="uid://d2q8r7gda30hl"]
 
 [ext_resource type="Script" path="res://BattleScene/battle_scene.gd" id="1_ghiv6"]
 [ext_resource type="Texture2D" uid="uid://behuyt0yfgvl1" path="res://MiscAssets/battleground and background 4.png" id="2_rqwci"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" path="res://BattleScene/links_manager.gd" id="4_j0lnd"]
 [ext_resource type="Script" path="res://BattleScene/entity_manager.gd" id="4_w1hbr"]
 [ext_resource type="Script" path="res://BattleScene/pool_manager.gd" id="6_j1xk0"]
+[ext_resource type="Texture2D" uid="uid://otxnnjyh678o" path="res://MiscAssets/pool_sack.webp" id="7_3jpo3"]
 [ext_resource type="Script" path="res://BattleScene/UI/pool_panel.gd" id="8_pgmmx"]
+[ext_resource type="Texture2D" uid="uid://db75mnyhcsejo" path="res://MiscAssets/pool_tray.webp" id="9_bgxyk"]
 [ext_resource type="FontFile" uid="uid://blub7v7fs601k" path="res://MiscAssets/komika/KOMIKAHB.ttf" id="11_h8ck8"]
 [ext_resource type="Texture2D" uid="uid://bwfueoi101k6t" path="res://MiscAssets/foreground4.png" id="12_0gyru"]
 [ext_resource type="Script" path="res://BattleScene/round_init_button.gd" id="12_yiov7"]
@@ -57,12 +59,10 @@ offset_bottom = 359.0
 toggle_mode = true
 text = "Pool"
 
-[node name="LinksPanel" type="ColorRect" parent="ChainerManager"]
-offset_left = 568.0
-offset_top = 320.0
-offset_right = 896.0
-offset_bottom = 552.0
-color = Color(0.670588, 0.392157, 0.27451, 1)
+[node name="LinksPanel" type="Sprite2D" parent="ChainerManager"]
+position = Vector2(0, 304)
+texture = ExtResource("9_bgxyk")
+centered = false
 
 [node name="LinksManager" type="GridContainer" parent="ChainerManager"]
 offset_left = 576.0
@@ -74,28 +74,29 @@ theme_override_constants/v_separation = 8
 columns = 5
 script = ExtResource("4_j0lnd")
 
-[node name="PoolPanel" type="ColorRect" parent="ChainerManager"]
-offset_left = 568.0
-offset_top = 552.0
-offset_right = 896.0
-offset_bottom = 784.0
-color = Color(0.45098, 0.247059, 0.164706, 1)
+[node name="PoolPanel" type="TextureRect" parent="ChainerManager"]
+offset_top = 544.0
+offset_right = 960.0
+offset_bottom = 780.0
+mouse_filter = 2
+texture = ExtResource("7_3jpo3")
 script = ExtResource("8_pgmmx")
 
 [node name="Label" type="Label" parent="ChainerManager/PoolPanel"]
 layout_mode = 0
-offset_top = 8.0
-offset_right = 328.0
-offset_bottom = 31.0
+offset_left = 568.0
+offset_top = 40.0
+offset_right = 896.0
+offset_bottom = 63.0
 text = "Remaining blocks in pool:"
 horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="ChainerManager/PoolPanel"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 32.0
-offset_right = 328.0
-offset_bottom = 232.0
+offset_left = 576.0
+offset_top = 64.0
+offset_right = 896.0
+offset_bottom = 264.0
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 8

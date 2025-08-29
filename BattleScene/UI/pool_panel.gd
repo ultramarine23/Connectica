@@ -1,4 +1,4 @@
-extends ColorRect
+extends TextureRect
 
 @onready var grid_cont = $GridContainer
 
