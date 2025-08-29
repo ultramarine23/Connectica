@@ -8,7 +8,7 @@ var player
 func _ready():
 	initiate_player()
 	Managers.entity_manager = self
-	initiate_enemies(enemy_list)
+	initiate_enemies(generate_enemies())
 	Signals.battle_ended.connect(on_battle_end)
 
 
@@ -18,11 +18,49 @@ func initiate_player():
 	add_child(player)
 
 
-func initiate_enemies(enemypath_list : Array):
-	var enemy_posns = get_enemy_positions(len(enemypath_list))
-	for i in len(enemypath_list):
-		var enemypath = enemypath_list[i]
-		var enemy_inst = load(enemypath).instantiate()
+func generate_enemies() -> Array:
+	var difficulty_pts = (BattleInfo.room_number * 30) + BattleInfo.extra_difficulty_pts
+	BattleInfo.extra_difficulty_pts = 0
+	var enemies_arr : Array = BattleInfo.enemy_costs.keys()
+	var costs_arr : Array = BattleInfo.enemy_costs.values()
+	var selected_enemies = []
+	
+	difficulty_pts = round(float(difficulty_pts) * randf_range(0.7, 1.3))
+	print("DIFFICULTY POINTS : ", difficulty_pts)
+	costs_arr.shuffle()
+	costs_arr.sort() # sorts the array in ascending order
+	costs_arr.reverse() # array is now in descending order
+	
+	var lowest_cost = costs_arr.back()
+	
+	while difficulty_pts >= lowest_cost:
+		for cost in costs_arr:
+			if cost <= difficulty_pts:
+				difficulty_pts -= cost
+				selected_enemies.append(BattleInfo.enemy_costs.find_key(cost))
+	
+	var unselected_enemies = difference_arr(enemies_arr, selected_enemies)
+	for enem in unselected_enemies:
+		deflate_enemy_price(enem)
+	for enem in selected_enemies:
+		inflate_enemy_price(enem)
+	
+	return selected_enemies
+
+
+func inflate_enemy_price(packed_scn):
+	BattleInfo.enemy_costs[packed_scn] *= 1.2
+
+func deflate_enemy_price(packed_scn):
+	BattleInfo.enemy_costs[packed_scn] *= 0.8
+
+
+func initiate_enemies(enemy_list : Array):
+	# spawn enemies
+	var enemy_posns = get_enemy_positions(len(enemy_list))
+	for i in len(enemy_list):
+		var enemy = enemy_list[i]
+		var enemy_inst = enemy.instantiate()
 		
 		add_child(enemy_inst)
 		enemy_inst.global_position = enemy_posns[i]
@@ -60,6 +98,13 @@ func get_enemy_positions(pos_count : int):
 func on_battle_end():
 	remove_child(player)
 
+
+func difference_arr(arr1, arr2):
+	var only_in_arr1 = []
+	for v in arr1:
+		if not (v in arr2):
+			only_in_arr1.append(v)
+	return only_in_arr1
 
 #func calculate_enemy_positions(pos_count : int, middle_pos : Vector2) -> Array:
 	#var positions_arr = []

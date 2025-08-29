@@ -96,5 +96,6 @@ func check_if_battle_over():
 
 func end_battle():
 	if BattleInfo.is_battle_won:
+		BattleInfo.room_number += 1
 		var new_battle = preload(Consts.BATTLE_SCNPATH).instantiate()
 		Signals.scene_transition_requested.emit(self, new_battle)
