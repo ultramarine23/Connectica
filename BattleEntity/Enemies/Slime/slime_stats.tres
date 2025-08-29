@@ -7,3 +7,4 @@ script = ExtResource("1_f53ho")
 max_health = 20
 strength = 6
 accuracy = 100
+point_value = 20

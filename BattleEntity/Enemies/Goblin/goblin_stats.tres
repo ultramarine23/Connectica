@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatsResource" load_steps=2 format=3 uid="uid://ybieqwloqugc"]
+
+[ext_resource type="Script" path="res://BattleEntity/Enemies/stats_resource.gd" id="1_gfran"]
+
+[resource]
+script = ExtResource("1_gfran")
+max_health = 60
+strength = 10
+accuracy = 100
+point_value = 50
