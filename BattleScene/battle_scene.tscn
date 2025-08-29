@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2q8r7gda30hl"]
+[gd_scene load_steps=13 format=3 uid="uid://d2q8r7gda30hl"]
 
-[ext_resource type="PackedScene" uid="uid://1or4eq5w3uoy" path="res://BattleEntity/Player/player.tscn" id="1_3nuks"]
 [ext_resource type="Script" path="res://BattleScene/battle_scene.gd" id="1_ghiv6"]
 [ext_resource type="Texture2D" uid="uid://behuyt0yfgvl1" path="res://MiscAssets/battleground and background 4.png" id="2_rqwci"]
 [ext_resource type="Script" path="res://BattleScene/chainer_manager.gd" id="3_76cat"]
@@ -38,10 +37,7 @@ text = "Level 1"
 
 [node name="EntityManager" type="Node" parent="."]
 script = ExtResource("4_w1hbr")
-enemy_list = Array[String](["res://BattleEntity/Enemies/slime.tscn", "res://BattleEntity/Enemies/slime.tscn", "res://BattleEntity/Enemies/slime.tscn", "res://BattleEntity/Enemies/slime.tscn"])
-
-[node name="Player" parent="EntityManager" instance=ExtResource("1_3nuks")]
-position = Vector2(192, 216)
+enemy_list = Array[String](["res://BattleEntity/Enemies/Goblin/goblin.tscn", "res://BattleEntity/Enemies/Slime/slime.tscn", "res://BattleEntity/Enemies/Slime/slime.tscn"])
 
 [node name="Marker2D" type="Marker2D" parent="EntityManager"]
 position = Vector2(496, 216)

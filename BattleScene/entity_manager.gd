@@ -3,9 +3,19 @@ class_name EntityManager
 
 @export var enemy_list : Array[String]
 
+var player
+
 func _ready():
+	initiate_player()
 	Managers.entity_manager = self
 	initiate_enemies(enemy_list)
+	Signals.battle_ended.connect(on_battle_end)
+
+
+func initiate_player():
+	player = BattleInfo.player
+	player.global_position = Vector2(192, 216)
+	add_child(player)
 
 
 func initiate_enemies(enemypath_list : Array):
@@ -45,6 +55,10 @@ func get_enemy_positions(pos_count : int):
 				Vector2(base_pos_x + 220, pos_y),
 				Vector2(base_pos_x + 330, pos_y)
 				]
+
+
+func on_battle_end():
+	remove_child(player)
 
 
 #func calculate_enemy_positions(pos_count : int, middle_pos : Vector2) -> Array:

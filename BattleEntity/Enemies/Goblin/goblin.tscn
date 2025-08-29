@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://hy42dxeys87v"]
+[gd_scene load_steps=9 format=3 uid="uid://hy42dxeys87v"]
 
 [ext_resource type="Script" path="res://BattleEntity/Enemies/Goblin/goblin.gd" id="1_xah4y"]
+[ext_resource type="Resource" uid="uid://ybieqwloqugc" path="res://BattleEntity/Enemies/Goblin/goblin_stats.tres" id="2_jd1d0"]
+[ext_resource type="Texture2D" uid="uid://bh7qj4osqe4yf" path="res://BattleEntity/Enemies/Goblin/goblin.png" id="3_n3y4m"]
 [ext_resource type="Material" uid="uid://bj5reu6t5km7c" path="res://MiscAssets/blink_shader.tres" id="3_qmjax"]
-[ext_resource type="Texture2D" uid="uid://di787mfh8whru" path="res://BattleEntity/Enemies/Slime/slime.png" id="4_7qqc8"]
 [ext_resource type="PackedScene" uid="uid://de05qelj2shxy" path="res://BattleEntity/Components/health_manager.tscn" id="5_0r6e6"]
 
 [sub_resource type="Animation" id="Animation_bu8wc"]
@@ -43,12 +44,13 @@ _data = {
 
 [node name="Goblin" type="Node2D"]
 script = ExtResource("1_xah4y")
+stats_res = ExtResource("2_jd1d0")
 
 [node name="Icon" type="Sprite2D" parent="."]
 material = ExtResource("3_qmjax")
-position = Vector2(0, -32)
+position = Vector2(0, -56)
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("4_7qqc8")
+texture = ExtResource("3_n3y4m")
 
 [node name="HealthManager" parent="." instance=ExtResource("5_0r6e6")]
 

@@ -9,11 +9,12 @@ func _ready():
 	
 	await do_battle()
 	Signals.battle_ended.emit()
+	end_battle()
 
 
 func do_battle():
 	Signals.battle_started.emit()
-	Managers.links_manager.add_links_to_hand(5)
+	Managers.links_manager.add_links_to_hand(8)
 	
 	while BattleInfo.is_battle_over == false:
 		Signals.round_started.emit()
@@ -71,7 +72,7 @@ func transition_phase():
 	BattleInfo.enemy_intents.clear()
 	
 	var additional_draws = floor(float(BattleInfo.player_intent.draw_intent) / 5.0)
-	Managers.links_manager.add_links_to_hand(3 + additional_draws)
+	Managers.links_manager.add_links_to_hand(4 + additional_draws)
 	
 	BattleInfo.player.health_manager.reset_block()
 	
@@ -80,6 +81,20 @@ func transition_phase():
 
 func check_if_battle_over():
 	if BattleInfo.enemies == [] or BattleInfo.player == null:
+		BattleInfo.is_battle_over = true
+		
+		if BattleInfo.enemies == []:
+			BattleInfo.is_battle_won = true
+		else:
+			BattleInfo.is_battle_won = false
+		
 		return true
 	else:
+		BattleInfo.is_battle_over = false
 		return false
+
+
+func end_battle():
+	if BattleInfo.is_battle_won:
+		var new_battle = preload(Consts.BATTLE_SCNPATH).instantiate()
+		Signals.scene_transition_requested.emit(self, new_battle)

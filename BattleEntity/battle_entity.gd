@@ -36,7 +36,6 @@ func on_hp_depleted():
 	is_dead = true
 	if self is Enemy:
 		BattleInfo.enemies.erase(self)
+		queue_free()
 	else:
 		BattleInfo.player = null
-	
-	queue_free()
