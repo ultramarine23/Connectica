@@ -7,4 +7,5 @@ func _ready():
 
 
 func on_pool_chosen():
-	Signals.scene_transition_requested.emit(self, Consts.BATTLE_SCNPATH)
+	var battle_scene = preload(Consts.BATTLE_SCNPATH).instantiate()
+	Signals.scene_transition_requested.emit(self, battle_scene)
