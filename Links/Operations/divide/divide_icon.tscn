@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://vcwripudkp3e"]
+
+[ext_resource type="Texture2D" uid="uid://8bd2vi2efu3n" path="res://Links/operand_block.png" id="1_wnekq"]
+[ext_resource type="Texture2D" uid="uid://dj6l1vkkduym5" path="res://Links/Operations/divide/divide.png" id="2_g233k"]
+
+[node name="DivideIcon" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_wnekq")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_g233k")
+centered = false

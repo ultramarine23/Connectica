@@ -8,7 +8,6 @@ class_name Enemy
 func _ready():
 	health_manager.max_hp = stats_res.max_health
 	health_manager.initialize_hp()
-	BattleInfo.enemies.append(self)
 	super()
 
 func generate_intent():

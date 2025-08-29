@@ -29,6 +29,7 @@ centered = false
 
 [node name="ChainerShader" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
 offset_right = 384.0
 offset_bottom = 48.0
 mouse_filter = 2

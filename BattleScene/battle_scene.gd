@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready():
 	BattleInfo.is_battle_over = false
-	BattleInfo.level_pool = preload("res://LinkPool/L1_initial_pool.tres")
+	BattleInfo.level_pool = preload("res://Floors/F1/F1_initial_pool.tres")
 	randomize()
 	await get_tree().create_timer(Consts.PAUSE_DUR).timeout
 	

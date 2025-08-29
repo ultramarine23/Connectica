@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2q8r7gda30hl"]
+[gd_scene load_steps=15 format=3 uid="uid://d2q8r7gda30hl"]
 
 [ext_resource type="PackedScene" uid="uid://1or4eq5w3uoy" path="res://BattleEntity/Player/player.tscn" id="1_3nuks"]
 [ext_resource type="Script" path="res://BattleScene/battle_scene.gd" id="1_ghiv6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmsob22bus8gg" path="res://BattleScene/UI/action_chainer.tscn" id="3_hbeln"]
 [ext_resource type="Texture2D" uid="uid://dlr64no5oqn3i" path="res://BattleScene/UI/UI_background.png" id="3_l6n37"]
 [ext_resource type="Script" path="res://BattleScene/links_manager.gd" id="4_j0lnd"]
+[ext_resource type="Script" path="res://BattleScene/entity_manager.gd" id="4_w1hbr"]
 [ext_resource type="Script" path="res://BattleScene/pool_manager.gd" id="6_j1xk0"]
 [ext_resource type="Script" path="res://BattleScene/UI/pool_panel.gd" id="8_pgmmx"]
 [ext_resource type="FontFile" uid="uid://blub7v7fs601k" path="res://MiscAssets/komika/KOMIKAHB.ttf" id="11_h8ck8"]
@@ -37,12 +38,30 @@ offset_bottom = 56.0
 text = "Level 1"
 
 [node name="EntityManager" type="Node" parent="."]
+script = ExtResource("4_w1hbr")
 
 [node name="Player" parent="EntityManager" instance=ExtResource("1_3nuks")]
 position = Vector2(192, 216)
 
 [node name="Slime" parent="EntityManager" instance=ExtResource("2_b8qel")]
-position = Vector2(768, 216)
+position = Vector2(744, 208)
+
+[node name="Slime4" parent="EntityManager" instance=ExtResource("2_b8qel")]
+position = Vector2(632, 208)
+
+[node name="Slime2" parent="EntityManager" instance=ExtResource("2_b8qel")]
+position = Vector2(848, 208)
+
+[node name="Slime3" parent="EntityManager" instance=ExtResource("2_b8qel")]
+position = Vector2(528, 208)
+
+[node name="Marker2D" type="Marker2D" parent="EntityManager"]
+position = Vector2(528, 192)
+gizmo_extents = 40.3
+
+[node name="Marker2D2" type="Marker2D" parent="EntityManager"]
+position = Vector2(848, 192)
+gizmo_extents = 40.3
 
 [node name="PoolManager" type="Node" parent="."]
 script = ExtResource("6_j1xk0")

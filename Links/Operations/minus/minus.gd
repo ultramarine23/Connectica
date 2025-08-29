@@ -1,6 +1,7 @@
 extends Operation
 
 func _init():
+	link_icon = "res://Links/Operations/minus/minus_icon.tscn"
 	link_value = difference
 	super()
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://7nch4kkyokr4"]
+
+[ext_resource type="Texture2D" uid="uid://8bd2vi2efu3n" path="res://Links/operand_block.png" id="1_wbi32"]
+[ext_resource type="Texture2D" uid="uid://ldwvgxmi3ls" path="res://Links/Operations/minus/minus.png" id="2_y8b5c"]
+
+[node name="MinusIcon" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_wbi32")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_y8b5c")
+centered = false
