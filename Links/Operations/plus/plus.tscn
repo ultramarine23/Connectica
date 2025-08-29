@@ -24,15 +24,16 @@ texture = ExtResource("2_uqquw")
 centered = false
 
 [node name="Plus" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("3_vkp7h")
 centered = false
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -2.0
 offset_right = 54.0
 offset_bottom = 56.0
+pivot_offset = Vector2(28, 28)
 theme_override_fonts/font = ExtResource("4_qopce")
 theme_override_font_sizes/font_size = 24
 text = "+"

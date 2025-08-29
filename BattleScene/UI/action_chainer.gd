@@ -4,6 +4,7 @@ class_name ActionChainer
 @export var chainer_type : Consts.Actions
 
 @onready var clear_button = $ClearButton
+@onready var chainer_shader = $ChainerShader
 
 var accepting_links = []
 var cur_links = []
