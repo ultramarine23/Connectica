@@ -7,7 +7,7 @@ var cur_pool = []
 func _ready():
 	Managers.pool_manager = self
 	
-	await get_tree().current_scene.ready
+	await Signals.battle_started
 	load_sample_pool(BattleInfo.level_pool)
 	refill_cur_pool()
 

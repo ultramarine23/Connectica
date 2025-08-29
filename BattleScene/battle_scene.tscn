@@ -44,12 +44,8 @@ enemy_list = Array[String](["res://BattleEntity/Enemies/slime.tscn", "res://Batt
 position = Vector2(192, 216)
 
 [node name="Marker2D" type="Marker2D" parent="EntityManager"]
-position = Vector2(496, 192)
-gizmo_extents = 40.3
-
-[node name="Marker2D2" type="Marker2D" parent="EntityManager"]
-position = Vector2(848, 192)
-gizmo_extents = 40.3
+position = Vector2(496, 216)
+gizmo_extents = 48.0
 
 [node name="PoolManager" type="Node" parent="."]
 script = ExtResource("6_j1xk0")

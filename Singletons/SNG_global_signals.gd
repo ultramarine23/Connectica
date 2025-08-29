@@ -1,7 +1,9 @@
 extends Node
 
-signal round_started
-signal round_ended
+signal scene_transition_requested(base_scene, target_scene)
 
-signal battle_started
-signal battle_ended
+signal round_started()
+signal round_ended()
+
+signal battle_started()
+signal battle_ended()

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpbq70fvboym7"]
+
+[ext_resource type="Script" path="res://PoolSelectScene/pool_selector.gd" id="1_lgadc"]
+[ext_resource type="Resource" uid="uid://0mqk1fb03kvu" path="res://Floors/F1/F1_initial_pool.tres" id="2_ky3v2"]
+
+[node name="PoolSelector" type="Button"]
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 576.0
+offset_bottom = 192.0
+text = "Classic
+(multiplication/addition)"
+script = ExtResource("1_lgadc")
+sample_pool = ExtResource("2_ky3v2")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqhdtkpw6na3o"]
+
+[ext_resource type="Script" path="res://PoolSelectScene/pool_select_scene.gd" id="1_jcmmy"]
+[ext_resource type="Script" path="res://PoolSelectScene/pool_selector_manager.gd" id="2_ak6pc"]
+[ext_resource type="PackedScene" uid="uid://cpbq70fvboym7" path="res://PoolSelectScene/pool_selector.tscn" id="3_cgl22"]
+
+[node name="PoolSelectScene" type="Node2D"]
+script = ExtResource("1_jcmmy")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 224.0
+offset_top = 64.0
+offset_right = 672.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 24
+text = "Select your starting pool of links:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PoolSelectorManager" type="Node" parent="."]
+script = ExtResource("2_ak6pc")
+
+[node name="PoolSelector" parent="PoolSelectorManager" instance=ExtResource("3_cgl22")]

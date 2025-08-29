@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct71r6xyno4r0"]
+[gd_scene load_steps=4 format=3 uid="uid://ct71r6xyno4r0"]
 
-[ext_resource type="PackedScene" uid="uid://d2q8r7gda30hl" path="res://BattleScene/battle_scene.tscn" id="1_530ha"]
 [ext_resource type="Script" path="res://SceneManager/scene_manager.gd" id="1_iyhuh"]
+[ext_resource type="PackedScene" uid="uid://cqhdtkpw6na3o" path="res://PoolSelectScene/pool_select_scene.tscn" id="3_r62uq"]
+[ext_resource type="Script" path="res://SceneManager/cover_layer.gd" id="3_xvja1"]
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_iyhuh")
 
-[node name="BattleScene" parent="." instance=ExtResource("1_530ha")]
+[node name="CoverLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_xvja1")
+
+[node name="ColorRect" type="ColorRect" parent="CoverLayer"]
+offset_left = 960.0
+offset_right = 1928.0
+offset_bottom = 544.0
+color = Color(0, 0, 0, 1)
+
+[node name="PoolSelectScene" parent="." instance=ExtResource("3_r62uq")]
