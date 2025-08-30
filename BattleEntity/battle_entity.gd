@@ -19,8 +19,11 @@ func perform_attack(target : BattleEntity, damage : int):
 	
 	target.receive_attack(damage)
 
+
 func receive_attack(damage_dealt : int):
+	damage_dealt = _factor_in_weaknesses(damage_dealt)
 	var damage_taken = health_manager.deduct_hp(damage_dealt)
+	
 	if damage_taken > 0:
 		blink_anims.play("blink")
 		var recoil_tween = create_tween()
@@ -30,6 +33,10 @@ func receive_attack(damage_dealt : int):
 		else:
 			recoil_tween.tween_property(sprite, "position:x", sprite.position.x - 40, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 			recoil_tween.tween_property(sprite, "position:x", sprite.position.x, 0.1).set_trans(Tween.TRANS_LINEAR).set_delay(0.5)
+
+
+func _factor_in_weaknesses(init_damage : int) -> int:
+	return init_damage # virtual function used for entities with weaknesses
 
 
 func on_hp_depleted():

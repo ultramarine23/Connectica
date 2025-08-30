@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://BattleEntity/Components/health_manager.gd" id="1_4n36d"]
 
 [node name="HealthManager" type="Node2D"]
+z_index = 1
 script = ExtResource("1_4n36d")
 
 [node name="EmptyBar" type="ColorRect" parent="."]
-z_index = 1
 offset_left = -48.0
 offset_top = 8.0
 offset_right = 48.0
@@ -14,7 +14,6 @@ offset_bottom = 32.0
 color = Color(0, 0, 0, 1)
 
 [node name="HealthBar" type="ColorRect" parent="."]
-z_index = 1
 offset_left = -48.0
 offset_top = 8.0
 offset_right = -32.0
@@ -22,7 +21,6 @@ offset_bottom = 32.0
 color = Color(0.364706, 0.803922, 0.207843, 1)
 
 [node name="HealthLabel" type="Label" parent="."]
-z_index = 1
 offset_left = -48.0
 offset_top = 8.0
 offset_right = 48.0
@@ -31,7 +29,6 @@ text = "20 / 20"
 horizontal_alignment = 1
 
 [node name="BlockLabel" type="Label" parent="."]
-z_index = 1
 offset_left = -48.0
 offset_top = 32.0
 offset_right = 48.0

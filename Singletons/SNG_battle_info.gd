@@ -16,4 +16,5 @@ var is_battle_won = false
 var enemy_costs : Dictionary = {
 	preload("res://BattleEntity/Enemies/Slime/slime.tscn") : 20,
 	preload("res://BattleEntity/Enemies/Goblin/goblin.tscn") : 50,
+	preload("res://BattleEntity/Enemies/FireSpirit/fire_spirit.tscn") : 100,
 }

@@ -70,7 +70,7 @@ func execution_phase():
 
 
 func transition_phase():
-	var additional_draws = floor(float(BattleInfo.player_intent.draw_intent) / 5.0)
+	var additional_draws = floor(float(BattleInfo.player_intent.draw_intent) / 3.0)
 	Managers.links_manager.add_links_to_hand(4 + additional_draws)
 	
 	BattleInfo.player.health_manager.reset_block()

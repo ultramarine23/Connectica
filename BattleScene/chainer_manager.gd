@@ -37,6 +37,9 @@ func on_chainer_selected(sel_chainer : ActionChainer):
 	for chainer in chainers:
 		if chainer != sel_chainer:
 			chainer.set_pressed_no_signal(false)
+		
+		if chainer.chainer_text.text.begins_with("click"):
+				chainer.chainer_text.text = ""
 	
 	currently_active_chainer = sel_chainer
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmsob22bus8gg"]
+[gd_scene load_steps=8 format=3 uid="uid://bmsob22bus8gg"]
 
 [ext_resource type="Script" path="res://BattleScene/UI/action_chainer.gd" id="1_qpwoo"]
 [ext_resource type="Texture2D" uid="uid://dsx6acjrcdvfo" path="res://MiscAssets/clear_normal.webp" id="2_6kdys"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cvbmvfwj71ibq" path="res://MiscAssets/chainer_hover.webp" id="3_axedk"]
 [ext_resource type="Texture2D" uid="uid://kibkl6tag74x" path="res://MiscAssets/clear_pressed.webp" id="3_h82p1"]
 [ext_resource type="Texture2D" uid="uid://brb71v3vy0320" path="res://MiscAssets/chainer_paper.webp" id="5_nkvux"]
+[ext_resource type="FontFile" uid="uid://dlvggh8bbf2up" path="res://MiscAssets/komika/KOMIKHI_.ttf" id="7_wq5qq"]
 
 [node name="ActionChainer" type="TextureButton"]
 texture_filter = 1
@@ -45,3 +46,8 @@ color = Color(0.976471, 0.976471, 0.976471, 0.192157)
 layout_mode = 0
 offset_right = 384.0
 offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("7_wq5qq")
+theme_override_font_sizes/font_size = 14
+text = "click me to start chaining numbers"
+horizontal_alignment = 1
+vertical_alignment = 1

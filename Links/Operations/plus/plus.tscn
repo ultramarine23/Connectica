@@ -24,11 +24,11 @@ texture = ExtResource("2_uqquw")
 centered = false
 
 [node name="Plus" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("3_vkp7h")
 centered = false
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -2.0
 offset_right = 54.0
