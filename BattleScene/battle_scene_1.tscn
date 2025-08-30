@@ -126,6 +126,14 @@ chainer_type = 2
 
 [node name="TrashButton" parent="ChainerManager" instance=ExtResource("13_j8wc1")]
 
+[node name="Label" type="Label" parent="ChainerManager/TrashButton"]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 40.0
+text = "trash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label" type="Label" parent="ChainerManager"]
 offset_left = 80.0
 offset_top = 320.0

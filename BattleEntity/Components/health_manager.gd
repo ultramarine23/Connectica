@@ -21,18 +21,22 @@ func initialize_hp():
 
 func deduct_hp(amount : int):
 	# take block into consideration
-	var diff = amount - block
-	if diff > 0:
-		amount -= block
-		block = 0
-	elif diff < 0:
-		block -= amount
-		amount = 0
+	if amount >= 0:
+		var diff = amount - block
+		if diff > 0:
+			amount -= block
+			block = 0
+		elif diff < 0:
+			block -= amount
+			amount = 0
+		else:
+			block = 0
+			amount = 0
+		
+		health -= amount
 	else:
-		block = 0
-		amount = 0
+		heal_health(-amount)
 	
-	health -= amount
 	update_health_ui()
 	
 	if health <= 0:
@@ -49,6 +53,11 @@ func update_health_ui():
 		block_label.show()
 	else:
 		block_label.hide()
+
+
+func heal_health(amount : int):
+	health += amount
+	health = clamp(health, 0, max_hp)
 
 
 func add_block(amount : int):
