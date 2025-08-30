@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://1or4eq5w3uoy"]
+[gd_scene load_steps=9 format=3 uid="uid://1or4eq5w3uoy"]
 
 [ext_resource type="Script" path="res://BattleEntity/Player/player.gd" id="1_7bx07"]
+[ext_resource type="Texture2D" uid="uid://c1eb7iep18k88" path="res://BattleEntity/shadow.png" id="2_8kf7e"]
 [ext_resource type="Texture2D" uid="uid://kgos0n82twh7" path="res://BattleEntity/Player/player.png" id="2_844cv"]
 [ext_resource type="PackedScene" uid="uid://de05qelj2shxy" path="res://BattleEntity/Components/health_manager.tscn" id="2_l6nsy"]
 [ext_resource type="Material" uid="uid://bj5reu6t5km7c" path="res://MiscAssets/blink_shader.tres" id="2_ofwpv"]
@@ -10,7 +11,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:material:shader_parameter/active")
+tracks/0/path = NodePath("Shadow:material:shader_parameter/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,7 +26,7 @@ resource_name = "blink"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:material:shader_parameter/active")
+tracks/0/path = NodePath("Shadow:material:shader_parameter/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,9 +45,15 @@ _data = {
 [node name="Player" type="Node2D"]
 script = ExtResource("1_7bx07")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.282353, 0.282353, 0.282353, 0.921569)
+position = Vector2(0, -8)
+scale = Vector2(0.18, 0.3)
+texture = ExtResource("2_8kf7e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("2_ofwpv")
-position = Vector2(0, -64)
+position = Vector2(0, -56)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_844cv")
 

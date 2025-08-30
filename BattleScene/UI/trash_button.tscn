@@ -22,6 +22,7 @@ script = ExtResource("4_vqepg")
 [node name="ClearButton" type="TextureButton" parent="."]
 visible = false
 texture_filter = 1
+layout_mode = 0
 offset_left = -64.0
 offset_top = 8.0
 offset_bottom = 40.0
@@ -37,6 +38,7 @@ centered = false
 
 [node name="ChainerShader" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
 offset_right = 384.0
 offset_bottom = 48.0
 mouse_filter = 2
@@ -44,5 +46,6 @@ color = Color(0.976471, 0.976471, 0.976471, 0.192157)
 
 [node name="ChainerText" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_right = 384.0
 offset_bottom = 48.0

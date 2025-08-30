@@ -1,6 +1,7 @@
 extends Node2D
 class_name BattleEntity
 
+@onready var sprite : Sprite2D = $Sprite2D
 @onready var health_manager : EntityHealthManager = $HealthManager
 @onready var blink_anims : AnimationPlayer = $BlinkAnims
 
@@ -13,8 +14,8 @@ func _ready():
 
 func perform_attack(target : BattleEntity, damage : int):
 	var jump_tween = create_tween()
-	jump_tween.tween_property(self, "position:y", position.y - 80, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	jump_tween.tween_property(self, "position:y", position.y, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	jump_tween.tween_property(sprite, "position:y", sprite.position.y - 80, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	jump_tween.tween_property(sprite, "position:y", sprite.position.y, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	
 	target.receive_attack(damage)
 
@@ -23,13 +24,12 @@ func receive_attack(damage_dealt : int):
 	if damage_taken > 0:
 		blink_anims.play("blink")
 		var recoil_tween = create_tween()
-		
 		if self is Enemy:
-			recoil_tween.tween_property(self, "position:x", position.x + 40, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-			recoil_tween.tween_property(self, "position:x", position.x, 0.1).set_trans(Tween.TRANS_LINEAR).set_delay(0.5)
+			recoil_tween.tween_property(sprite, "position:x", sprite.position.x + 40, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			recoil_tween.tween_property(sprite, "position:x", sprite.position.x, 0.1).set_trans(Tween.TRANS_LINEAR).set_delay(0.5)
 		else:
-			recoil_tween.tween_property(self, "position:x", position.x - 40, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-			recoil_tween.tween_property(self, "position:x", position.x, 0.1).set_trans(Tween.TRANS_LINEAR).set_delay(0.5)
+			recoil_tween.tween_property(sprite, "position:x", sprite.position.x - 40, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			recoil_tween.tween_property(sprite, "position:x", sprite.position.x, 0.1).set_trans(Tween.TRANS_LINEAR).set_delay(0.5)
 
 
 func on_hp_depleted():
