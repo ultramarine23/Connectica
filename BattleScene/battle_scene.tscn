@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2q8r7gda30hl"]
+[gd_scene load_steps=17 format=3 uid="uid://d2q8r7gda30hl"]
 
 [ext_resource type="Script" path="res://BattleScene/battle_scene.gd" id="1_ghiv6"]
 [ext_resource type="Texture2D" uid="uid://behuyt0yfgvl1" path="res://MiscAssets/battleground and background 4.png" id="2_rqwci"]
@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://otxnnjyh678o" path="res://MiscAssets/pool_sack.webp" id="7_3jpo3"]
 [ext_resource type="Script" path="res://BattleScene/UI/pool_panel.gd" id="8_pgmmx"]
 [ext_resource type="Texture2D" uid="uid://db75mnyhcsejo" path="res://MiscAssets/pool_tray.webp" id="9_bgxyk"]
+[ext_resource type="FontFile" uid="uid://c6fhvihmcfjfx" path="res://MiscAssets/komika/KOMIKAH_.ttf" id="11_gaytq"]
 [ext_resource type="FontFile" uid="uid://blub7v7fs601k" path="res://MiscAssets/komika/KOMIKAHB.ttf" id="11_h8ck8"]
 [ext_resource type="Texture2D" uid="uid://bwfueoi101k6t" path="res://MiscAssets/foreground4.png" id="12_0gyru"]
 [ext_resource type="Script" path="res://BattleScene/round_init_button.gd" id="12_yiov7"]
+[ext_resource type="PackedScene" uid="uid://60jm2om1sy2b" path="res://BattleScene/UI/trash_button.tscn" id="13_j8wc1"]
 
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_ghiv6")
@@ -88,6 +90,7 @@ offset_left = 568.0
 offset_top = 40.0
 offset_right = 896.0
 offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("11_gaytq")
 text = "Remaining blocks in pool:"
 horizontal_alignment = 1
 
@@ -120,6 +123,8 @@ offset_top = 472.0
 offset_right = 536.0
 offset_bottom = 520.0
 chainer_type = 2
+
+[node name="TrashButton" parent="ChainerManager" instance=ExtResource("13_j8wc1")]
 
 [node name="Label" type="Label" parent="ChainerManager"]
 offset_left = 80.0
