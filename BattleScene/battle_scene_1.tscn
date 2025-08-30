@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://d2q8r7gda30hl"]
 
 [ext_resource type="Script" path="res://BattleScene/battle_scene.gd" id="1_ghiv6"]
-[ext_resource type="Texture2D" uid="uid://behuyt0yfgvl1" path="res://MiscAssets/battleground and background 4.png" id="2_rqwci"]
+[ext_resource type="Texture2D" uid="uid://7ay3hvljvgu" path="res://BattleScene/battleground and background 5.png" id="2_r2q3g"]
 [ext_resource type="Script" path="res://BattleScene/chainer_manager.gd" id="3_76cat"]
 [ext_resource type="PackedScene" uid="uid://bmsob22bus8gg" path="res://BattleScene/UI/action_chainer.tscn" id="3_hbeln"]
 [ext_resource type="Texture2D" uid="uid://dlr64no5oqn3i" path="res://BattleScene/UI/UI_background.png" id="3_l6n37"]
@@ -20,11 +20,11 @@
 [node name="BattleScene" type="Node2D"]
 script = ExtResource("1_ghiv6")
 metadata/_edit_horizontal_guides_ = [552.0, 304.0, 224.0]
-metadata/_edit_vertical_guides_ = [576.0, 896.0]
+metadata/_edit_vertical_guides_ = [576.0, 896.0, 768.0]
 
 [node name="BattlegroundAndBackground" type="Sprite2D" parent="."]
 position = Vector2(480, 256)
-texture = ExtResource("2_rqwci")
+texture = ExtResource("2_r2q3g")
 
 [node name="UiBackground" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.894118)

@@ -50,7 +50,7 @@ stats_res = ExtResource("2_tfm08")
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0.282353, 0.282353, 0.282353, 0.921569)
 position = Vector2(0, -8)
-scale = Vector2(0.15, 0.3)
+scale = Vector2(0.1, 0.3)
 texture = ExtResource("3_j5qje")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

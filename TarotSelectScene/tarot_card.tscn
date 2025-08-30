@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3bnu4y7ryg14"]
+
+[ext_resource type="Script" path="res://TarotSelectScene/tarot_card.gd" id="1_m2de6"]
+
+[node name="TarotCard" type="Button"]
+custom_minimum_size = Vector2(176, 256)
+script = ExtResource("1_m2de6")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhsp4x66wt30n"]
+
+[ext_resource type="Script" path="res://TarotSelectScene/tarot_select_scene.gd" id="1_nagh8"]
+[ext_resource type="PackedScene" uid="uid://d3bnu4y7ryg14" path="res://TarotSelectScene/tarot_card.tscn" id="2_mqq23"]
+
+[node name="TarotSelectScene" type="Node2D"]
+script = ExtResource("1_nagh8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 56.0
+offset_right = 706.0
+offset_bottom = 79.0
+text = "You have been granted the gift of foresight. Four paths lay ahead."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TarotsContainer" type="HBoxContainer" parent="."]
+offset_left = 96.0
+offset_top = 128.0
+offset_right = 864.0
+offset_bottom = 384.0
+theme_override_constants/separation = 21
+
+[node name="TarotCard" parent="TarotsContainer" instance=ExtResource("2_mqq23")]
+layout_mode = 2
+text = "easy"
+bound_scnpath = "res://BattleScene/battle_scene_1.tscn"
+
+[node name="TarotCard2" parent="TarotsContainer" instance=ExtResource("2_mqq23")]
+layout_mode = 2
+text = "medium"
+bound_scnpath = "res://BattleScene/battle_scene_1.tscn"
+extra_difficulty_pts = 10
+
+[node name="TarotCard3" parent="TarotsContainer" instance=ExtResource("2_mqq23")]
+layout_mode = 2
+text = "hard"
+bound_scnpath = "res://BattleScene/battle_scene_1.tscn"
+extra_difficulty_pts = 20
+
+[node name="TarotCard4" parent="TarotsContainer" instance=ExtResource("2_mqq23")]
+layout_mode = 2
+text = "very hard"
+bound_scnpath = "res://BattleScene/battle_scene_1.tscn"
+extra_difficulty_pts = 50

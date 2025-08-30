@@ -75,11 +75,11 @@ func get_enemy_positions(pos_count : int):
 	
 	match pos_count:
 		1:
-			return [Vector2(base_pos_x + 160, pos_y)]
+			return [Vector2(base_pos_x + 250, pos_y)]
 		2:
 			return [
 				Vector2(base_pos_x + 100, pos_y),
-				Vector2(base_pos_x + 220, pos_y)
+				Vector2(base_pos_x + 250, pos_y)
 				]
 		3:
 			return [
